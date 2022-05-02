@@ -9,5 +9,5 @@ DHT11温湿度传感器，BH1750光强传感器，MQ2烟雾传感器
 
 没什么参考价值，发布只是为了查看方便
 
-硬件实物图
+硬件实物图     
 ![image](https://user-images.githubusercontent.com/55424074/166281119-f94afe99-cc25-4b04-bc81-808c9f69d687.png)
