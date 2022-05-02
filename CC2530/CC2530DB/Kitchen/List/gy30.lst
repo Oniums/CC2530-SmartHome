@@ -1,0 +1,1411 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         19/Dec/2020  20:47:07 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\Source\IO\gy30.c                              #
+#    Command line       =  -f D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples #
+#                          \Design\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev. #
+#                          cfg (-DCPU32MHZ -DROOT=__near_func                 #
+#                          -DMAC_CFG_TX_DATA_MAX=3 -DMAC_CFG_TX_MAX=6         #
+#                          -DMAC_CFG_RX_MAX=3) -f D:\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\Design\CC2530DB\..\..\..\Tool #
+#                          s\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0   #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00080000                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x38 -DNWK_START_DELAY=100   #
+#                          -DEXTENDED_JOINING_RANDOM_MASK=0x007F              #
+#                          -DBEACON_REQUEST_DELAY=100                         #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 D:\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\Design\Source\IO\gy30.c -D    #
+#                          ZTOOL_P1 -D xMT_TASK -D xMT_SYS_FUNC -D            #
+#                          xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -D            #
+#                          xPOWER_SAVING -lC D:\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Samples\Design\CC2530DB\Kitchen\List\ -lA  #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\Kitchen\List\ --diag_suppress        #
+#                          Pe001,Pa010 -o D:\ZStack-CC2530-2.5.1a\Projects\zs #
+#                          tack\Samples\Design\CC2530DB\Kitchen\Obj\ -e       #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples #
+#                          \Design\CC2530DB\ -I D:\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Samples\Design\CC2530DB\..\Source\ -I   #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\Source\IO\ -I                     #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\ZMain\TI2530DB\ -I          #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\hal\includ #
+#                          e\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samp #
+#                          les\Design\CC2530DB\..\..\..\..\..\Components\hal\ #
+#                          target\CC2530EB\ -I D:\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Samples\Design\CC2530DB\..\..\..\..\..\C #
+#                          omponents\mac\include\ -I                          #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\mac\high_l #
+#                          evel\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\Design\CC2530DB\..\..\..\..\..\Components\m #
+#                          ac\low_level\srf04\ -I D:\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\Design\CC2530DB\..\..\..\..\. #
+#                          .\Components\mac\low_level\srf04\single_chip\ -I   #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\mt\ -I     #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\osal\inclu #
+#                          de\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\Sam #
+#                          ples\Design\CC2530DB\..\..\..\..\..\Components\ser #
+#                          vices\saddr\ -I D:\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Samples\Design\CC2530DB\..\..\..\..\..\Compo #
+#                          nents\services\sdata\ -I                           #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\stack\af\  #
+#                          -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples #
+#                          \Design\CC2530DB\..\..\..\..\..\Components\stack\n #
+#                          wk\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\Sam #
+#                          ples\Design\CC2530DB\..\..\..\..\..\Components\sta #
+#                          ck\sapi\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstac #
+#                          k\Samples\Design\CC2530DB\..\..\..\..\..\Component #
+#                          s\stack\sec\ -I D:\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Samples\Design\CC2530DB\..\..\..\..\..\Compo #
+#                          nents\stack\sys\ -I D:\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Samples\Design\CC2530DB\..\..\..\..\..\C #
+#                          omponents\stack\zdo\ -I D:\ZStack-CC2530-2.5.1a\Pr #
+#                          ojects\zstack\Samples\Design\CC2530DB\..\..\..\..\ #
+#                          ..\Components\zmac\ -I D:\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\Design\CC2530DB\..\..\..\..\. #
+#                          .\Components\zmac\f8w\ -Ohz --require_prototypes   #
+#    List file          =  D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\Kitchen\List\gy30.lst                #
+#    Object file        =  D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\Kitchen\Obj\gy30.r51                 #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Design\Source\IO\gy30.c
+      1          #include <ioCC2530.h>
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xd0
+   \   union <unnamed> volatile __sfr _A_PSW
+   \                     _A_PSW:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf4
+   \   unsigned char volatile __sfr P1SEL
+   \                     P1SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfe
+   \   unsigned char volatile __sfr P1DIR
+   \                     P1DIR:
+   \   000000                DS 1
+      2          #include "hal_types.h"
+      3          #include "hal_uart.h"
+      4          #include "GY30.h"
+      5          #include "OnBoard.h"
+      6          #include <string.h>
+      7          
+      8          #define SlaveAddress 0x46 //定义器件在IIC总线中的从地址,根据SA0地址引脚不同修改
+      9          #define SCL P1_6          //IIC时钟引脚定义
+     10          #define SDA P1_7          //IIC数据引脚定义
+     11          #define SDA_OUT() P1DIR |= 0x80
+     12          #define SDA_IN() P1DIR &= ~0x80
+     13          #define SCL_OUT() P1DIR |= 0x40
+     14          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     15          int GY30X;
+   \                     GY30X:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     16          char GY30X_str[7] = {0};
+   \                     GY30X_str:
+   \   000000                DS 7
+   \   000007                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     17          char GY30_DATABUF[255] = {0};
+   \                     GY30_DATABUF:
+   \   000000                DS 255
+   \   0000FF                REQUIRE __INIT_XDATA_Z
+     18          static void delay_nms(int n);
+     19          static void GY30_Delay5us(void);
+     20          static void GY30_Start(void);
+     21          static void GY30_Stop(void);
+     22          static void GY30_SendACK(char ack);
+     23          static char GY30_RecvACK(void);
+     24          static void GY30_SendByte(unsigned char dat);
+     25          static unsigned char GY30_RecvByte(void);
+     26          static void Single_Write_GY30(unsigned char REG_Address);
+     27          unsigned char Single_Read_GY30(unsigned char REG_Address);
+     28          void Init_GY30(void);
+     29          void Multiple_read_GY30(void);
+     30          void type_change_GY30(int num, char *str);
+     31          
+     32          void delay_nms(int n)
+     33          {
+     34            int i;
+     35          
+     36            for (i = 0; i < n * 200; i++)
+     37          
+     38            {
+     39              GY30_Delay5us();
+     40            }
+     41          }
+     42          
+     43          /**************************************
+     44          
+     45          延时5微秒
+     46          
+     47          **************************************/
+     48          
+     49          static void GY30_Delay5us(void) //uint16microSecs)
+     50          {
+     51            MicroWait(20);
+     52          
+     53            /*uint8 microSecs = 5;
+     54          
+     55           while(microSecs--)
+     56          
+     57            {*/
+     58          
+     59            /* 32 NOPs == 1 usecs */
+     60          
+     61            /*  asm("nop");asm("nop"); asm("nop"); asm("nop");asm("nop");
+     62          
+     63             asm("nop"); asm("nop"); asm("nop");asm("nop"); asm("nop");
+     64          
+     65             asm("nop"); asm("nop"); asm("nop");asm("nop"); asm("nop");
+     66          
+     67             asm("nop"); asm("nop"); asm("nop");asm("nop"); asm("nop");
+     68          
+     69             asm("nop"); asm("nop"); asm("nop");asm("nop"); asm("nop");
+     70          
+     71             asm("nop"); asm("nop"); asm("nop");asm("nop"); asm("nop");
+     72          
+     73             asm("nop"); asm("nop");
+     74          
+     75            }*/
+     76          }
+     77          
+     78          /**************************************
+     79          
+     80          起始信号
+     81          
+     82          **************************************/
+     83          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     84          static void GY30_Start()
+   \                     GY30_Start:
+     85          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     86            SDA = 1; //拉高数据线
+   \   000004   D297         SETB    0x90.7
+     87          
+     88            SCL = 1; //拉高时钟线
+   \   000006   D296         SETB    0x90.6
+     89          
+     90            GY30_Delay5us();
+   \   000008                ; Setup parameters for call to function Onboard_wait
+   \   000008   7A14         MOV     R2,#0x14
+   \   00000A   7B00         MOV     R3,#0x0
+   \   00000C   12....       LCALL   ??Onboard_wait?relay
+     91          
+     92            SDA = 0; //产生下降沿
+   \   00000F   C297         CLR     0x90.7
+     93          
+     94            GY30_Delay5us(); //延时
+   \   000011                ; Setup parameters for call to function Onboard_wait
+   \   000011   7A14         MOV     R2,#0x14
+   \   000013   7B00         MOV     R3,#0x0
+   \   000015   12....       LCALL   ??Onboard_wait?relay
+     95          
+     96            SCL = 0; //拉低时钟线
+   \   000018   C296         CLR     0x90.6
+     97          
+     98            GY30_Delay5us();
+   \   00001A                ; Setup parameters for call to function Onboard_wait
+   \   00001A                REQUIRE ?Subroutine0
+   \   00001A                REQUIRE _A_P1
+   \   00001A                ; // Fall through to label ?Subroutine0
+     99          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7A14         MOV     R2,#0x14
+   \   000002   7B00         MOV     R3,#0x0
+   \   000004   12....       LCALL   ??Onboard_wait?relay
+   \   000007                REQUIRE ??Subroutine13_0
+   \   000007                ; // Fall through to label ??Subroutine13_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine13_0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    100          
+    101          /**************************************
+    102          
+    103          停止信号
+    104          
+    105          **************************************/
+    106          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    107          static void GY30_Stop()
+   \                     GY30_Stop:
+    108          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    109            SDA = 0; //拉低数据线
+   \   000004   C297         CLR     0x90.7
+    110          
+    111            SCL = 1; //拉高时钟线
+   \   000006   D296         SETB    0x90.6
+    112          
+    113            GY30_Delay5us(); //延时
+   \   000008                ; Setup parameters for call to function Onboard_wait
+   \   000008   7A14         MOV     R2,#0x14
+   \   00000A   7B00         MOV     R3,#0x0
+   \   00000C   12....       LCALL   ??Onboard_wait?relay
+    114          
+    115            SDA = 1; //产生上升沿
+   \   00000F   D297         SETB    0x90.7
+    116          
+    117            GY30_Delay5us(); //延时
+   \   000011                ; Setup parameters for call to function Onboard_wait
+   \   000011   80..         SJMP    ?Subroutine0
+   \   000013                REQUIRE _A_P1
+    118          }
+    119          
+    120          /**************************************
+    121          
+    122          发送应答信号
+    123          
+    124          入口参数:ack (0:ACK 1:NAK)
+    125          
+    126          **************************************/
+    127          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    128          static void GY30_SendACK(char ack)
+   \                     GY30_SendACK:
+    129          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+    130            SDA = ack; //写应答信号
+   \   000006   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000008   9297         MOV     0x90.7,C
+    131          
+    132            SCL = 1; //拉高时钟线
+   \   00000A   12....       LCALL   ?Subroutine3 & 0xFFFF
+    133          
+    134            GY30_Delay5us(); //延时
+    135          
+    136            SCL = 0; //拉低时钟线
+    137          
+    138            GY30_Delay5us(); //延时
+    139          }
+   \                     ??CrossCallReturnLabel_0:
+   \   00000D   02....       LJMP    ?Subroutine1 & 0xFFFF
+   \   000010                REQUIRE _A_P1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   D296         SETB    0x90.6
+   \   000002                ; Setup parameters for call to function Onboard_wait
+   \   000002                ; Setup parameters for call to function Onboard_wait
+   \   000002   7A14         MOV     R2,#0x14
+   \   000004   7B00         MOV     R3,#0x0
+   \   000006   12....       LCALL   ??Onboard_wait?relay
+   \   000009   C296         CLR     0x90.6
+   \   00000B                ; Setup parameters for call to function Onboard_wait
+   \   00000B                ; Setup parameters for call to function Onboard_wait
+   \   00000B   7A14         MOV     R2,#0x14
+   \   00000D   7B00         MOV     R3,#0x0
+   \   00000F   12....       LCALL   ??Onboard_wait?relay
+   \   000012   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    140          
+    141          /**************************************
+    142          
+    143          接收应答信号
+    144          
+    145          **************************************/
+    146          
+    147          static char GY30_RecvACK()
+    148          {
+    149            SCL = 1; //拉高时钟线
+    150          
+    151            GY30_Delay5us();
+    152          
+    153            SDA_IN();
+    154          
+    155            CY = SDA; //读应答信号
+    156          
+    157            SDA_OUT();
+    158          
+    159            SCL = 0; //拉低时钟线
+    160          
+    161            GY30_Delay5us(); //延时
+    162          
+    163            return CY;
+    164          }
+    165          
+    166          /**************************************
+    167          
+    168          向IIC总线发送一个字节数据
+    169          
+    170          **************************************/
+    171          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    172          static void GY30_SendByte(unsigned char dat)
+   \                     GY30_SendByte:
+    173          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FF           MOV     R7,A
+    174            unsigned char i;
+    175          
+    176            for (i = 0; i < 8; i++) //8位计数器
+   \   000007   7E00         MOV     R6,#0x0
+    177          
+    178            {
+    179              //dat <<= 1;              //移出数据的最高位
+    180          
+    181              if ((0x80 >> i) & dat)
+   \                     ??GY30_SendByte_0:
+   \   000009   75..80       MOV     ?V0 + 0,#-0x80
+   \   00000C   75..00       MOV     ?V0 + 1,#0x0
+   \   00000F   EE           MOV     A,R6
+   \   000010   78..         MOV     R0,#?V0 + 0
+   \   000012   12....       LCALL   ?SS_SHR
+   \   000015   E5..         MOV     A,?V0 + 0
+   \   000017   5F           ANL     A,R7
+   \   000018   6004         JZ      ??GY30_SendByte_1
+    182          
+    183              {
+    184                SDA = 1;
+   \   00001A   D297         SETB    0x90.7
+   \   00001C   8002         SJMP    ??GY30_SendByte_2
+    185              }
+    186          
+    187              else
+    188          
+    189              {
+    190                SDA = 0;
+   \                     ??GY30_SendByte_1:
+   \   00001E   C297         CLR     0x90.7
+    191          
+    192              } //送数据口
+    193          
+    194              SCL = 1; //拉高时钟线
+   \                     ??GY30_SendByte_2:
+   \   000020   12....       LCALL   ?Subroutine3 & 0xFFFF
+    195          
+    196              GY30_Delay5us(); //延时
+    197          
+    198              SCL = 0; //拉低时钟线
+    199          
+    200              GY30_Delay5us(); //延时
+    201            }
+   \                     ??CrossCallReturnLabel_1:
+   \   000023   0E           INC     R6
+   \   000024   EE           MOV     A,R6
+   \   000025   C3           CLR     C
+   \   000026   9408         SUBB    A,#0x8
+   \   000028   40DF         JC      ??GY30_SendByte_0
+    202          
+    203            GY30_RecvACK();
+   \   00002A   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_14:
+   \   00002D   92D7         MOV     0xd0.7,C
+   \   00002F   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   000032   E5D0         MOV     A,0xd0
+    204          }
+   \   000034   02....       LJMP    ??Subroutine14_0 & 0xFFFF
+   \   000037                REQUIRE _A_P1
+   \   000037                REQUIRE P1DIR
+   \   000037                REQUIRE _A_PSW
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine14_0:
+   \   000000   7F02         MOV     R7,#0x2
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    205          
+    206          /**************************************
+    207          
+    208          从IIC总线接收一个字节数据
+    209          
+    210          **************************************/
+    211          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    212          static unsigned char GY30_RecvByte()
+   \                     GY30_RecvByte:
+    213          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    214            unsigned char i;
+    215          
+    216            unsigned char dat = 0;
+   \   000005   75..00       MOV     ?V0 + 0,#0x0
+    217          
+    218            unsigned char test;
+    219          
+    220            SDA = 1; //使能内部上拉,准备读取数据,
+   \   000008   D297         SETB    0x90.7
+    221          
+    222            for (i = 0; i < 8; i++) //8位计数器
+   \   00000A   7E00         MOV     R6,#0x0
+    223          
+    224            {
+    225              SCL = 1; //拉高时钟线
+   \                     ??GY30_RecvByte_0:
+   \   00000C   12....       LCALL   ?Subroutine11 & 0xFFFF
+    226          
+    227              GY30_Delay5us(); //延时
+    228          
+    229              SDA_IN();
+    230          
+    231              if (SDA)
+   \                     ??CrossCallReturnLabel_15:
+   \   00000F   7407         MOV     A,#0x7
+   \   000011   5012         JNC     ??GY30_RecvByte_1
+    232          
+    233              {
+    234                test = 0x01;
+    235          
+    236                test <<= (7 - i);
+    237          
+    238                dat |= test;
+   \   000013   C3           CLR     C
+   \   000014   9E           SUBB    A,R6
+   \   000015   F8           MOV     R0,A
+   \   000016   7401         MOV     A,#0x1
+   \   000018   B80002       CJNE    R0,#0x0,??GY30_RecvByte_2
+   \   00001B   8004         SJMP    ??GY30_RecvByte_3
+   \                     ??GY30_RecvByte_2:
+   \   00001D   C3           CLR     C
+   \   00001E   33           RLC     A
+   \   00001F   D8FC         DJNZ    R0,??GY30_RecvByte_2
+   \                     ??GY30_RecvByte_3:
+   \   000021   42..         ORL     ?V0 + 0,A
+   \   000023   8011         SJMP    ??GY30_RecvByte_4
+    239              }
+    240          
+    241              else
+    242          
+    243              {
+    244                test = 0x01;
+    245          
+    246                test <<= (7 - i);
+    247          
+    248                dat &= ~test;
+   \                     ??GY30_RecvByte_1:
+   \   000025   C3           CLR     C
+   \   000026   9E           SUBB    A,R6
+   \   000027   F8           MOV     R0,A
+   \   000028   7401         MOV     A,#0x1
+   \   00002A   B80002       CJNE    R0,#0x0,??GY30_RecvByte_5
+   \   00002D   8004         SJMP    ??GY30_RecvByte_6
+   \                     ??GY30_RecvByte_5:
+   \   00002F   C3           CLR     C
+   \   000030   33           RLC     A
+   \   000031   D8FC         DJNZ    R0,??GY30_RecvByte_5
+   \                     ??GY30_RecvByte_6:
+   \   000033   F4           CPL     A
+   \   000034   52..         ANL     ?V0 + 0,A
+    249              }
+    250          
+    251              SDA_OUT();
+   \                     ??GY30_RecvByte_4:
+   \   000036   12....       LCALL   ?Subroutine4 & 0xFFFF
+    252          
+    253              SCL = 0; //拉低时钟线
+    254          
+    255              GY30_Delay5us(); //延时
+    256            }
+   \                     ??CrossCallReturnLabel_3:
+   \   000039   0E           INC     R6
+   \   00003A   EE           MOV     A,R6
+   \   00003B   C3           CLR     C
+   \   00003C   9408         SUBB    A,#0x8
+   \   00003E   40CC         JC      ??GY30_RecvByte_0
+    257          
+    258            return dat;
+   \   000040   A9..         MOV     R1,?V0 + 0
+   \   000042   80..         SJMP    ?Subroutine1
+   \   000044                REQUIRE _A_P1
+   \   000044                REQUIRE P1DIR
+    259          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine11:
+   \   000000   D296         SETB    0x90.6
+   \   000002                ; Setup parameters for call to function Onboard_wait
+   \   000002                ; Setup parameters for call to function Onboard_wait
+   \   000002   7A14         MOV     R2,#0x14
+   \   000004   7B00         MOV     R3,#0x0
+   \   000006   12....       LCALL   ??Onboard_wait?relay
+   \   000009   53FE7F       ANL     0xfe,#0x7f
+   \   00000C   A297         MOV     C,0x90.7
+   \   00000E   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   43FE80       ORL     0xfe,#0x80
+   \   000003   C296         CLR     0x90.6
+   \   000005                ; Setup parameters for call to function Onboard_wait
+   \   000005                ; Setup parameters for call to function Onboard_wait
+   \   000005   7A14         MOV     R2,#0x14
+   \   000007   7B00         MOV     R3,#0x0
+   \   000009   12....       LCALL   ??Onboard_wait?relay
+   \   00000C   22           RET
+    260          
+    261          //******单字节写入*******************************************
+    262          
+    263          //static void Single_Write_GY30(unsignedchar REG_Address,unsigned char REG_data)
+    264          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    265          static void Single_Write_GY30(unsigned char REG_Address)
+   \                     Single_Write_GY30:
+    266          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FE           MOV     R6,A
+    267            GY30_Start(); //起始信号
+   \   000007                ; Setup parameters for call to function GY30_Start
+   \   000007   12....       LCALL   ?Subroutine6 & 0xFFFF
+    268          
+    269            GY30_SendByte(SlaveAddress); //发送设备地址+写信号
+    270          
+    271            GY30_SendByte(REG_Address); //内部寄存器地址
+   \                     ??CrossCallReturnLabel_6:
+   \   00000A                ; Setup parameters for call to function GY30_SendByte
+   \   00000A   EE           MOV     A,R6
+   \   00000B   F9           MOV     R1,A
+   \   00000C   12....       LCALL   ??GY30_SendByte?relay
+    272          
+    273            //GY30_SendByte(REG_data);      //内部寄存器数据
+    274          
+    275            GY30_Stop(); //发送停止信号
+   \   00000F                ; Setup parameters for call to function GY30_Stop
+   \   00000F   12....       LCALL   ??GY30_Stop?relay
+    276          }
+   \   000012                REQUIRE ?Subroutine1
+   \   000012                ; // Fall through to label ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   12....       LCALL   ??GY30_Start?relay
+   \   000003                ; Setup parameters for call to function GY30_SendByte
+   \   000003                ; Setup parameters for call to function GY30_SendByte
+   \   000003   7946         MOV     R1,#0x46
+   \   000005   12....       LCALL   ??GY30_SendByte?relay
+   \   000008   22           RET
+    277          
+    278          //********单字节读取*****************************************
+    279          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    280          unsigned char Single_Read_GY30(unsigned char REG_Address)
+   \                     Single_Read_GY30:
+    281          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FF           MOV     R7,A
+    282          
+    283            unsigned char REG_data;
+    284          
+    285            GY30_Start(); //起始信号
+   \   000007                ; Setup parameters for call to function GY30_Start
+   \   000007   12....       LCALL   ?Subroutine6 & 0xFFFF
+    286          
+    287            GY30_SendByte(SlaveAddress); //发送设备地址+写信号
+    288          
+    289            GY30_SendByte(REG_Address); //发送存储单元地址，从0开始
+   \                     ??CrossCallReturnLabel_7:
+   \   00000A                ; Setup parameters for call to function GY30_SendByte
+   \   00000A   EF           MOV     A,R7
+   \   00000B   F9           MOV     R1,A
+   \   00000C   12....       LCALL   ??GY30_SendByte?relay
+    290          
+    291            GY30_Start(); //起始信号
+   \   00000F                ; Setup parameters for call to function GY30_Start
+   \   00000F   12....       LCALL   ?Subroutine7 & 0xFFFF
+    292          
+    293            GY30_SendByte(SlaveAddress + 1); //发送设备地址+读信号
+    294          
+    295            REG_data = GY30_RecvByte(); //读出寄存器数据
+   \                     ??CrossCallReturnLabel_8:
+   \   000012                ; Setup parameters for call to function GY30_RecvByte
+   \   000012   12....       LCALL   ??GY30_RecvByte?relay
+   \   000015   E9           MOV     A,R1
+   \   000016   FE           MOV     R6,A
+    296          
+    297            GY30_SendACK(1);
+   \   000017                ; Setup parameters for call to function GY30_SendACK
+   \   000017   7901         MOV     R1,#0x1
+   \   000019   12....       LCALL   ??GY30_SendACK?relay
+    298          
+    299            GY30_Stop(); //停止信号
+   \   00001C                ; Setup parameters for call to function GY30_Stop
+   \   00001C   12....       LCALL   ??GY30_Stop?relay
+    300          
+    301            return REG_data;
+   \   00001F   EE           MOV     A,R6
+   \   000020   F9           MOV     R1,A
+   \   000021   80..         SJMP    ?Subroutine1
+    302          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   12....       LCALL   ??GY30_Start?relay
+   \   000003                ; Setup parameters for call to function GY30_SendByte
+   \   000003                ; Setup parameters for call to function GY30_SendByte
+   \   000003   7947         MOV     R1,#0x47
+   \   000005   12....       LCALL   ??GY30_SendByte?relay
+   \   000008   22           RET
+    303          
+    304          //*****************************************************************
+    305          
+    306          //初始化GY30，根据需要请参考pdf进行修改************************
+    307          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    308          void Init_GY30(void)
+   \                     Init_GY30:
+    309          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    310            P1SEL &= ~0xc0; //作为普通 IO 口
+   \   000004   53F43F       ANL     0xf4,#0x3f
+    311          
+    312            //P1INP &= ~0Xc0; //打开上拉
+    313          
+    314            //P1INP |= 0Xc0; //打开下拉
+    315          
+    316            SDA_OUT();
+   \   000007   43FE80       ORL     0xfe,#0x80
+    317          
+    318            SCL_OUT();
+   \   00000A   43FE40       ORL     0xfe,#0x40
+    319          
+    320            Single_Write_GY30(0x01);
+   \   00000D                ; Setup parameters for call to function Single_Write_GY30
+   \   00000D   7901         MOV     R1,#0x1
+   \   00000F   12....       LCALL   ??Single_Write_GY30?relay
+    321          }
+   \   000012   02....       LJMP    ??Subroutine13_0 & 0xFFFF
+   \   000015                REQUIRE P1SEL
+   \   000015                REQUIRE P1DIR
+    322          
+    323          //*********************************************************
+    324          
+    325          //
+    326          
+    327          //连续读出GY30内部加速度数据，地址范围0x01~0x06
+    328          
+    329          //
+    330          
+    331          //*********************************************************
+    332          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    333          void Multiple_read_GY30(void)
+   \                     Multiple_read_GY30:
+    334          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 6
+   \   000005   74FA         MOV     A,#-0x6
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    335          
+    336            unsigned char BUF[6] = {0}; //接收数据缓存区
+   \   00000A   85..82       MOV     DPL,?XSP + 0
+   \   00000D   85..83       MOV     DPH,?XSP + 1
+   \   000010   AC82         MOV     R4,DPL
+   \   000012   AD83         MOV     R5,DPH
+   \   000014   7583..       MOV     DPH,#(`?<Constant {0}>` >> 8) & 0xff
+   \   000017   7582..       MOV     DPL,#`?<Constant {0}>` & 0xff
+   \   00001A   7406         MOV     A,#0x6
+   \   00001C   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
+    337          
+    338            unsigned char i;
+    339          
+    340            Single_Write_GY30(0x01); //power on
+   \   00001F                ; Setup parameters for call to function Single_Write_GY30
+   \   00001F   7901         MOV     R1,#0x1
+   \   000021   12....       LCALL   ??Single_Write_GY30?relay
+    341          
+    342            Single_Write_GY30(0x10); // H-resolution mode
+   \   000024                ; Setup parameters for call to function Single_Write_GY30
+   \   000024   7910         MOV     R1,#0x10
+   \   000026   12....       LCALL   ??Single_Write_GY30?relay
+    343          
+    344            delay_nms(180);
+    345          
+    346            GY30_Start(); //起始信号
+   \   000029                ; Setup parameters for call to function GY30_Start
+   \   000029   12....       LCALL   ?Subroutine7 & 0xFFFF
+    347          
+    348            //GY30_SendByte(SlaveAddress);          //发送设备地址+写信号
+    349          
+    350            //GY30_SendByte(0x32);                  //发送存储单元地址，从0x01开始
+    351          
+    352            //GY30_Start();                         //起始信号
+    353          
+    354            GY30_SendByte(SlaveAddress + 1); //发送设备地址+读信号
+    355          
+    356            for (i = 0; i < 3; i++) //连续读取6个地址数据，存储中BUF
+   \                     ??CrossCallReturnLabel_9:
+   \   00002C   7E00         MOV     R6,#0x0
+    357            {
+    358              BUF[i] = GY30_RecvByte(); //BUF[0]存储0x32地址中的数据
+   \                     ??Multiple_read_GY30_0:
+   \   00002E                ; Setup parameters for call to function GY30_RecvByte
+   \   00002E   12....       LCALL   ??GY30_RecvByte?relay
+   \   000031   8E..         MOV     ?V0 + 0,R6
+   \   000033   85..82       MOV     DPL,?XSP + 0
+   \   000036   85..83       MOV     DPH,?XSP + 1
+   \   000039   E582         MOV     A,DPL
+   \   00003B   25..         ADD     A,?V0 + 0
+   \   00003D   F582         MOV     DPL,A
+   \   00003F   E583         MOV     A,DPH
+   \   000041   3400         ADDC    A,#0x0
+   \   000043   F583         MOV     DPH,A
+   \   000045   E9           MOV     A,R1
+   \   000046   F0           MOVX    @DPTR,A
+    359          
+    360              if (i == 3)
+    361          
+    362              {
+    363                GY30_SendACK(1); //最后一个数据需要回NOACK
+    364              }
+    365          
+    366              else
+    367          
+    368              {
+    369                GY30_SendACK(0); //回应ACK
+   \   000047                ; Setup parameters for call to function GY30_SendACK
+   \   000047   7900         MOV     R1,#0x0
+   \   000049   12....       LCALL   ??GY30_SendACK?relay
+    370              }
+    371            }
+   \   00004C   0E           INC     R6
+   \   00004D   EE           MOV     A,R6
+   \   00004E   C3           CLR     C
+   \   00004F   9403         SUBB    A,#0x3
+   \   000051   40DB         JC      ??Multiple_read_GY30_0
+    372          
+    373            GY30_Stop(); //停止信号
+   \   000053                ; Setup parameters for call to function GY30_Stop
+   \   000053   12....       LCALL   ??GY30_Stop?relay
+    374          
+    375            GY30X = (BUF[0] << 8) | BUF[1];
+   \   000056   85..82       MOV     DPL,?XSP + 0
+   \   000059   85..83       MOV     DPH,?XSP + 1
+   \   00005C   E0           MOVX    A,@DPTR
+   \   00005D   F9           MOV     R1,A
+   \   00005E   7401         MOV     A,#0x1
+   \   000060   12....       LCALL   ?XSTACK_DISP0_8
+   \   000063   E0           MOVX    A,@DPTR
+   \   000064   90....       MOV     DPTR,#GY30X
+   \   000067   F0           MOVX    @DPTR,A
+   \   000068   A3           INC     DPTR
+   \   000069   E9           MOV     A,R1
+   \   00006A   F0           MOVX    @DPTR,A
+    376          
+    377            HalUARTWrite(0, "the data is ", 12);
+   \   00006B                ; Setup parameters for call to function HalUARTWrite
+   \   00006B   7C0C         MOV     R4,#0xc
+   \   00006D   7D00         MOV     R5,#0x0
+   \   00006F   7A..         MOV     R2,#`?<Constant "the data is ">` & 0xff
+   \   000071   7B..         MOV     R3,#(`?<Constant "the data is ">` >> 8) & 0xff
+   \   000073   7900         MOV     R1,#0x0
+   \   000075   12....       LCALL   ??HalUARTWrite?relay
+    378          
+    379            type_change_GY30(GY30X, GY30X_str);
+   \   000078                ; Setup parameters for call to function type_change_GY30
+   \   000078   7C..         MOV     R4,#GY30X_str & 0xff
+   \   00007A   7D..         MOV     R5,#(GY30X_str >> 8) & 0xff
+   \   00007C   90....       MOV     DPTR,#GY30X
+   \   00007F   E0           MOVX    A,@DPTR
+   \   000080   FA           MOV     R2,A
+   \   000081   A3           INC     DPTR
+   \   000082   E0           MOVX    A,@DPTR
+   \   000083   FB           MOV     R3,A
+   \   000084   12....       LCALL   ??type_change_GY30?relay
+    380          
+    381            HalUARTWrite(0, "\n", 1);
+   \   000087                ; Setup parameters for call to function HalUARTWrite
+   \   000087   7C01         MOV     R4,#0x1
+   \   000089   7D00         MOV     R5,#0x0
+   \   00008B   7A..         MOV     R2,#`?<Constant "\\n">` & 0xff
+   \   00008D   7B..         MOV     R3,#(`?<Constant "\\n">` >> 8) & 0xff
+   \   00008F   7900         MOV     R1,#0x0
+   \   000091   12....       LCALL   ??HalUARTWrite?relay
+    382          
+    383            strcat(GY30_DATABUF, &GY30X_str[1]);
+   \   000094                ; Setup parameters for call to function strcat
+   \   000094   7C..         MOV     R4,#(GY30X_str + 1) & 0xff
+   \   000096   7D..         MOV     R5,#((GY30X_str + 1) >> 8) & 0xff
+   \   000098   7A..         MOV     R2,#GY30_DATABUF & 0xff
+   \   00009A   7B..         MOV     R3,#(GY30_DATABUF >> 8) & 0xff
+   \   00009C   12....       LCALL   ??strcat?relay
+    384          
+    385            HalUARTWrite(0, GY30_DATABUF, strlen(GY30_DATABUF));
+                                   ^
+Warning[Pe167]: argument of type "char *" is incompatible with parameter of
+          type "unsigned char *"
+   \   00009F                ; Setup parameters for call to function HalUARTWrite
+   \   00009F                ; Setup parameters for call to function strlen
+   \   00009F   7A..         MOV     R2,#GY30_DATABUF & 0xff
+   \   0000A1   7B..         MOV     R3,#(GY30_DATABUF >> 8) & 0xff
+   \   0000A3   12....       LCALL   ??strlen?relay
+   \   0000A6   EA           MOV     A,R2
+   \   0000A7   FC           MOV     R4,A
+   \   0000A8   EB           MOV     A,R3
+   \   0000A9   FD           MOV     R5,A
+   \   0000AA   7A..         MOV     R2,#GY30_DATABUF & 0xff
+   \   0000AC   7B..         MOV     R3,#(GY30_DATABUF >> 8) & 0xff
+   \   0000AE   7900         MOV     R1,#0x0
+   \   0000B0   12....       LCALL   ??HalUARTWrite?relay
+    386          
+    387            HalUARTWrite(0, "\n", 1);
+   \   0000B3                ; Setup parameters for call to function HalUARTWrite
+   \   0000B3   7C01         MOV     R4,#0x1
+   \   0000B5   7D00         MOV     R5,#0x0
+   \   0000B7   7A..         MOV     R2,#`?<Constant "\\n">` & 0xff
+   \   0000B9   7B..         MOV     R3,#(`?<Constant "\\n">` >> 8) & 0xff
+   \   0000BB   7900         MOV     R1,#0x0
+   \   0000BD   12....       LCALL   ??HalUARTWrite?relay
+    388          
+    389            memset(GY30X_str, 0, strlen(GY30X_str));
+   \   0000C0                ; Setup parameters for call to function memset
+   \   0000C0                ; Setup parameters for call to function strlen
+   \   0000C0   7A..         MOV     R2,#GY30X_str & 0xff
+   \   0000C2   7B..         MOV     R3,#(GY30X_str >> 8) & 0xff
+   \   0000C4   12....       LCALL   ??strlen?relay
+   \   0000C7   8A..         MOV     ?V0 + 0,R2
+   \   0000C9   8B..         MOV     ?V0 + 1,R3
+   \   0000CB   78..         MOV     R0,#?V0 + 0
+   \   0000CD   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000D0   7C00         MOV     R4,#0x0
+   \   0000D2   7D00         MOV     R5,#0x0
+   \   0000D4   7A..         MOV     R2,#GY30X_str & 0xff
+   \   0000D6   7B..         MOV     R3,#(GY30X_str >> 8) & 0xff
+   \   0000D8   12....       LCALL   ??memset?relay
+   \   0000DB   7402         MOV     A,#0x2
+   \   0000DD   12....       LCALL   ?DEALLOC_XSTACK8
+    390          }
+   \   0000E0   7406         MOV     A,#0x6
+   \   0000E2                REQUIRE ?Subroutine2
+   \   0000E2                ; // Fall through to label ?Subroutine2
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000003                REQUIRE ??Subroutine14_0
+   \   000003                ; // Fall through to label ??Subroutine14_0
+    391          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    392          void type_change_GY30(int num, char *str)
+   \                     type_change_GY30:
+    393          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 5
+   \   000005   74FB         MOV     A,#-0x5
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   EA           MOV     A,R2
+   \   00000B   FE           MOV     R6,A
+   \   00000C   EB           MOV     A,R3
+   \   00000D   FF           MOV     R7,A
+   \   00000E   8C..         MOV     ?V0 + 0,R4
+   \   000010   8D..         MOV     ?V0 + 1,R5
+    394            unsigned char temp[5];
+    395          
+    396            if (num < 0)
+   \   000012   C3           CLR     C
+   \   000013   9400         SUBB    A,#0x0
+   \   000015   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000017   65D0         XRL     A,PSW
+   \   000019   33           RLC     A
+   \   00001A   7C01         MOV     R4,#0x1
+   \   00001C   7D00         MOV     R5,#0x0
+   \   00001E   5017         JNC     ??type_change_GY30_0
+    397          
+    398            {
+    399              HalUARTWrite(0, "-", 1);
+   \   000020                ; Setup parameters for call to function HalUARTWrite
+   \   000020   7A..         MOV     R2,#`?<Constant "-">` & 0xff
+   \   000022   7B..         MOV     R3,#(`?<Constant "-">` >> 8) & 0xff
+   \   000024   12....       LCALL   ?Subroutine10 & 0xFFFF
+    400          
+    401              str[0] = '-';
+   \                     ??CrossCallReturnLabel_12:
+   \   000027   742D         MOV     A,#0x2d
+   \   000029   F0           MOVX    @DPTR,A
+    402          
+    403              num = -num;
+   \   00002A   C3           CLR     C
+   \   00002B   E4           CLR     A
+   \   00002C   9E           SUBB    A,R6
+   \   00002D   F8           MOV     R0,A
+   \   00002E   E4           CLR     A
+   \   00002F   9F           SUBB    A,R7
+   \   000030   F9           MOV     R1,A
+   \   000031   E8           MOV     A,R0
+   \   000032   FE           MOV     R6,A
+   \   000033   E9           MOV     A,R1
+   \   000034   FF           MOV     R7,A
+   \   000035   800A         SJMP    ??type_change_GY30_1
+    404            }
+    405          
+    406            else
+    407          
+    408            {
+    409              HalUARTWrite(0, "+", 1);
+   \                     ??type_change_GY30_0:
+   \   000037                ; Setup parameters for call to function HalUARTWrite
+   \   000037   7A..         MOV     R2,#`?<Constant "+">` & 0xff
+   \   000039   7B..         MOV     R3,#(`?<Constant "+">` >> 8) & 0xff
+   \   00003B   12....       LCALL   ?Subroutine10 & 0xFFFF
+    410          
+    411              str[0] = '+';
+    412            }
+   \                     ??CrossCallReturnLabel_13:
+   \   00003E   742B         MOV     A,#0x2b
+   \   000040   F0           MOVX    @DPTR,A
+    413          
+    414            str[1] = temp[0] = num / 10000 + 0x30;
+   \                     ??type_change_GY30_1:
+   \   000041   EE           MOV     A,R6
+   \   000042   F8           MOV     R0,A
+   \   000043   EF           MOV     A,R7
+   \   000044   F9           MOV     R1,A
+   \   000045   7A10         MOV     R2,#0x10
+   \   000047   7B27         MOV     R3,#0x27
+   \   000049   12....       LCALL   ?S_DIV_MOD
+   \   00004C   E8           MOV     A,R0
+   \   00004D   2430         ADD     A,#0x30
+   \   00004F   85..82       MOV     DPL,?XSP + 0
+   \   000052   85..83       MOV     DPH,?XSP + 1
+   \   000055   F0           MOVX    @DPTR,A
+   \   000056   85..82       MOV     DPL,?V0 + 0
+   \   000059   85..83       MOV     DPH,?V0 + 1
+   \   00005C   12....       LCALL   ?Subroutine9 & 0xFFFF
+    415          
+    416            str[2] = temp[1] = num % 10000 / 1000 + 0x30;
+   \                     ??CrossCallReturnLabel_18:
+   \   00005F   7A10         MOV     R2,#0x10
+   \   000061   7B27         MOV     R3,#0x27
+   \   000063   12....       LCALL   ?S_DIV_MOD
+   \   000066   EA           MOV     A,R2
+   \   000067   F8           MOV     R0,A
+   \   000068   EB           MOV     A,R3
+   \   000069   F9           MOV     R1,A
+   \   00006A   7AE8         MOV     R2,#-0x18
+   \   00006C   7B03         MOV     R3,#0x3
+   \   00006E   12....       LCALL   ?S_DIV_MOD
+   \   000071   E8           MOV     A,R0
+   \   000072   2430         ADD     A,#0x30
+   \   000074   C0E0         PUSH    A
+   \   000076   7401         MOV     A,#0x1
+   \   000078   12....       LCALL   ?XSTACK_DISP0_8
+   \   00007B   D0E0         POP     A
+   \   00007D   12....       LCALL   ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   000080   12....       LCALL   ??Subroutine15_0 & 0xFFFF
+    417          
+    418            str[3] = temp[2] = num % 1000 / 100 + 0x30;
+   \                     ??CrossCallReturnLabel_20:
+   \   000083   7AE8         MOV     R2,#-0x18
+   \   000085   7B03         MOV     R3,#0x3
+   \   000087   12....       LCALL   ?S_DIV_MOD
+   \   00008A   EA           MOV     A,R2
+   \   00008B   F8           MOV     R0,A
+   \   00008C   EB           MOV     A,R3
+   \   00008D   F9           MOV     R1,A
+   \   00008E   7A64         MOV     R2,#0x64
+   \   000090   7B00         MOV     R3,#0x0
+   \   000092   12....       LCALL   ?S_DIV_MOD
+   \   000095   E8           MOV     A,R0
+   \   000096   2430         ADD     A,#0x30
+   \   000098   C0E0         PUSH    A
+   \   00009A   7402         MOV     A,#0x2
+   \   00009C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00009F   D0E0         POP     A
+   \   0000A1   12....       LCALL   ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   0000A4   12....       LCALL   ?Subroutine9 & 0xFFFF
+    419          
+    420            str[4] = temp[3] = num % 100 / 10 + 0x30;
+   \                     ??CrossCallReturnLabel_19:
+   \   0000A7   7A64         MOV     R2,#0x64
+   \   0000A9   7B00         MOV     R3,#0x0
+   \   0000AB   12....       LCALL   ?S_DIV_MOD
+   \   0000AE   EA           MOV     A,R2
+   \   0000AF   F8           MOV     R0,A
+   \   0000B0   EB           MOV     A,R3
+   \   0000B1   F9           MOV     R1,A
+   \   0000B2   7A0A         MOV     R2,#0xa
+   \   0000B4   7B00         MOV     R3,#0x0
+   \   0000B6   12....       LCALL   ?S_DIV_MOD
+   \   0000B9   E8           MOV     A,R0
+   \   0000BA   2430         ADD     A,#0x30
+   \   0000BC   C0E0         PUSH    A
+   \   0000BE   7403         MOV     A,#0x3
+   \   0000C0   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000C3   D0E0         POP     A
+   \   0000C5   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   0000C8   12....       LCALL   ??Subroutine15_0 & 0xFFFF
+    421          
+    422            str[5] = temp[4] = num % 10 + 0x30;
+   \                     ??CrossCallReturnLabel_21:
+   \   0000CB   7A0A         MOV     R2,#0xa
+   \   0000CD   7B00         MOV     R3,#0x0
+   \   0000CF   12....       LCALL   ?S_DIV_MOD
+   \   0000D2   EA           MOV     A,R2
+   \   0000D3   2430         ADD     A,#0x30
+   \   0000D5   C0E0         PUSH    A
+   \   0000D7   7404         MOV     A,#0x4
+   \   0000D9   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000DC   D0E0         POP     A
+   \   0000DE   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   0000E1   A3           INC     DPTR
+   \   0000E2   F0           MOVX    @DPTR,A
+    423          
+    424            HalUARTWrite(0, &temp[0], 5);
+   \   0000E3                ; Setup parameters for call to function HalUARTWrite
+   \   0000E3   7C05         MOV     R4,#0x5
+   \   0000E5   7D00         MOV     R5,#0x0
+   \   0000E7   85..82       MOV     DPL,?XSP + 0
+   \   0000EA   85..83       MOV     DPH,?XSP + 1
+   \   0000ED   AA82         MOV     R2,DPL
+   \   0000EF   AB83         MOV     R3,DPH
+   \   0000F1   7900         MOV     R1,#0x0
+   \   0000F3   12....       LCALL   ??HalUARTWrite?relay
+    425          }
+   \   0000F6   7405         MOV     A,#0x5
+   \   0000F8   02....       LJMP    ?Subroutine2 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   7900         MOV     R1,#0x0
+   \   000002   12....       LCALL   ??HalUARTWrite?relay
+   \   000005   85..82       MOV     DPL,?V0 + 0
+   \   000008   85..83       MOV     DPH,?V0 + 1
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   A3           INC     DPTR
+   \   000001                REQUIRE ??Subroutine15_0
+   \   000001                ; // Fall through to label ??Subroutine15_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine15_0:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   EE           MOV     A,R6
+   \   000002   F8           MOV     R0,A
+   \   000003   EF           MOV     A,R7
+   \   000004   F9           MOV     R1,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   12....       LCALL   ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine12:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   85..82       MOV     DPL,?V0 + 0
+   \   000004   85..83       MOV     DPH,?V0 + 1
+   \   000007   A3           INC     DPTR
+   \   000008   A3           INC     DPTR
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   12....       LCALL   ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_16:
+   \   000003   A3           INC     DPTR
+   \   000004   A3           INC     DPTR
+   \   000005   22           RET
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GY30_Start?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GY30_Start
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GY30_Stop?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GY30_Stop
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GY30_SendACK?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GY30_SendACK
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GY30_SendByte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GY30_SendByte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GY30_RecvByte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GY30_RecvByte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Single_Write_GY30?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Single_Write_GY30
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Single_Read_GY30?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Single_Read_GY30
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Init_GY30?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Init_GY30
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Multiple_read_GY30?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Multiple_read_GY30
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??type_change_GY30?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    type_change_GY30
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {0}>`:
+   \   000000   00           DB 0
+   \   000001   00000000     DB 0, 0, 0, 0, 0
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "the data is ">`:
+   \   000000   74686520     DB "the data is "
+   \            64617461
+   \            20697320
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\n">`:
+   \   000000   0A00         DB "\012"
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "-">`:
+   \   000000   2D00         DB "-"
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "+">`:
+   \   000000   2B00         DB "+"
+
+   Maximum stack usage in bytes:
+
+     Function               ISTACK PSTACK XSTACK
+     --------               ------ ------ ------
+     GY30_RecvByte              1      0     25
+       -> Onboard_wait          0      0     18
+       -> Onboard_wait          0      0     18
+     GY30_SendACK               0      0     25
+       -> Onboard_wait          0      0     18
+       -> Onboard_wait          0      0     18
+     GY30_SendByte              0      0     26
+       -> Onboard_wait          0      0     20
+       -> Onboard_wait          0      0     20
+       -> Onboard_wait          0      0     20
+       -> Onboard_wait          0      0     20
+     GY30_Start                 2      0     16
+       -> Onboard_wait          4      0      0
+       -> Onboard_wait          4      0      0
+       -> Onboard_wait          4      0      0
+     GY30_Stop                  2      0     16
+       -> Onboard_wait          4      0      0
+       -> Onboard_wait          4      0      0
+     Init_GY30                  2      0      0
+       -> Single_Write_GY30     4      0      0
+     Multiple_read_GY30         2      0     18
+       -> Single_Write_GY30     0      0     32
+       -> Single_Write_GY30     0      0     32
+       -> GY30_Start            0      0     32
+       -> GY30_SendByte         0      0     32
+       -> GY30_RecvByte         0      0     32
+       -> GY30_SendACK          0      0     32
+       -> GY30_Stop             0      0     32
+       -> HalUARTWrite          0      0     32
+       -> type_change_GY30      0      0     32
+       -> HalUARTWrite          0      0     32
+       -> strcat                0      0     32
+       -> strlen                0      0     32
+       -> HalUARTWrite          0      0     32
+       -> HalUARTWrite          0      0     32
+       -> strlen                0      0     32
+       -> memset                0      0     36
+     Single_Read_GY30           0      0      9
+       -> GY30_Start            0      0     18
+       -> GY30_SendByte         0      0     18
+       -> GY30_SendByte         0      0     18
+       -> GY30_Start            0      0     18
+       -> GY30_SendByte         0      0     18
+       -> GY30_RecvByte         0      0     18
+       -> GY30_SendACK          0      0     18
+       -> GY30_Stop             0      0     18
+     Single_Write_GY30          0      0     25
+       -> GY30_Start            0      0     18
+       -> GY30_SendByte         0      0     18
+       -> GY30_SendByte         0      0     18
+       -> GY30_Stop             0      0     18
+     type_change_GY30           1      0     31
+       -> HalUARTWrite          0      0     30
+       -> HalUARTWrite          0      0     30
+       -> HalUARTWrite          0      0     30
+
+
+   Segment part sizes:
+
+     Function/Label             Bytes
+     --------------             -----
+     _A_P1                         1
+     _A_PSW                        1
+     P1SEL                         1
+     P1DIR                         1
+     GY30X                         2
+     GY30X_str                     7
+     GY30_DATABUF                255
+     GY30_Start                   26
+     ?Subroutine0                  7
+     ??Subroutine13_0              7
+     GY30_Stop                    19
+     GY30_SendACK                 16
+     ?Subroutine3                 19
+     ?Subroutine1                  5
+     GY30_SendByte                55
+     ??Subroutine14_0              5
+     GY30_RecvByte                68
+     ?Subroutine11                15
+     ?Subroutine4                 13
+     Single_Write_GY30            18
+     ?Subroutine6                  9
+     Single_Read_GY30             35
+     ?Subroutine7                  9
+     Init_GY30                    21
+     Multiple_read_GY30          226
+     ?Subroutine2                  3
+     type_change_GY30            251
+     ?Subroutine10                12
+     ?Subroutine9                  1
+     ??Subroutine15_0              6
+     ?Subroutine8                  4
+     ?Subroutine12                10
+     ?Subroutine5                  6
+     ??GY30_Start?relay            6
+     ??GY30_Stop?relay             6
+     ??GY30_SendACK?relay          6
+     ??GY30_SendByte?relay         6
+     ??GY30_RecvByte?relay         6
+     ??Single_Write_GY30?relay     6
+     ??Single_Read_GY30?relay      6
+     ??Init_GY30?relay             6
+     ??Multiple_read_GY30?relay    6
+     ??type_change_GY30?relay      6
+     ?<Constant {0}>               6
+     ?<Constant "the data is ">   13
+     ?<Constant "\n">              2
+     ?<Constant "-">               2
+     ?<Constant "+">               2
+
+ 
+ 866 bytes in segment BANKED_CODE
+  60 bytes in segment BANK_RELAYS
+   4 bytes in segment SFR_AN
+  25 bytes in segment XDATA_ROM_C
+ 264 bytes in segment XDATA_Z
+ 
+ 926 bytes of CODE  memory
+  25 bytes of CONST memory
+   0 bytes of DATA  memory (+ 4 bytes shared)
+ 264 bytes of XDATA memory
+
+Errors: none
+Warnings: 1

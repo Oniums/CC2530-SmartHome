@@ -1,0 +1,381 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         17/Dec/2020  17:01:49 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\Source\IO\sensor_io.c                         #
+#    Command line       =  -f D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples #
+#                          \Design\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev. #
+#                          cfg (-DCPU32MHZ -DROOT=__near_func                 #
+#                          -DMAC_CFG_TX_DATA_MAX=3 -DMAC_CFG_TX_MAX=6         #
+#                          -DMAC_CFG_RX_MAX=3) -f D:\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\Design\CC2530DB\..\..\..\Tool #
+#                          s\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0   #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00080000                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x38 -DNWK_START_DELAY=100   #
+#                          -DEXTENDED_JOINING_RANDOM_MASK=0x007F              #
+#                          -DBEACON_REQUEST_DELAY=100                         #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 D:\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\Design\Source\IO\sensor_io.c  #
+#                          -D ZTOOL_P1 -D xMT_TASK -D xMT_SYS_FUNC -D         #
+#                          xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -D            #
+#                          xPOWER_SAVING -lC D:\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Samples\Design\CC2530DB\Kitchen\List\ -lA  #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\Kitchen\List\ --diag_suppress        #
+#                          Pe001,Pa010 -o D:\ZStack-CC2530-2.5.1a\Projects\zs #
+#                          tack\Samples\Design\CC2530DB\Kitchen\Obj\ -e       #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples #
+#                          \Design\CC2530DB\ -I D:\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Samples\Design\CC2530DB\..\Source\ -I   #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\Source\IO\ -I                     #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\ZMain\TI2530DB\ -I          #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\hal\includ #
+#                          e\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samp #
+#                          les\Design\CC2530DB\..\..\..\..\..\Components\hal\ #
+#                          target\CC2530EB\ -I D:\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Samples\Design\CC2530DB\..\..\..\..\..\C #
+#                          omponents\mac\include\ -I                          #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\mac\high_l #
+#                          evel\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\Design\CC2530DB\..\..\..\..\..\Components\m #
+#                          ac\low_level\srf04\ -I D:\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\Design\CC2530DB\..\..\..\..\. #
+#                          .\Components\mac\low_level\srf04\single_chip\ -I   #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\mt\ -I     #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\osal\inclu #
+#                          de\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\Sam #
+#                          ples\Design\CC2530DB\..\..\..\..\..\Components\ser #
+#                          vices\saddr\ -I D:\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Samples\Design\CC2530DB\..\..\..\..\..\Compo #
+#                          nents\services\sdata\ -I                           #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\stack\af\  #
+#                          -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples #
+#                          \Design\CC2530DB\..\..\..\..\..\Components\stack\n #
+#                          wk\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\Sam #
+#                          ples\Design\CC2530DB\..\..\..\..\..\Components\sta #
+#                          ck\sapi\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstac #
+#                          k\Samples\Design\CC2530DB\..\..\..\..\..\Component #
+#                          s\stack\sec\ -I D:\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Samples\Design\CC2530DB\..\..\..\..\..\Compo #
+#                          nents\stack\sys\ -I D:\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Samples\Design\CC2530DB\..\..\..\..\..\C #
+#                          omponents\stack\zdo\ -I D:\ZStack-CC2530-2.5.1a\Pr #
+#                          ojects\zstack\Samples\Design\CC2530DB\..\..\..\..\ #
+#                          ..\Components\zmac\ -I D:\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\Design\CC2530DB\..\..\..\..\. #
+#                          .\Components\zmac\f8w\ -Ohz --require_prototypes   #
+#    List file          =  D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\Kitchen\List\sensor_io.lst           #
+#    Object file        =  D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\Kitchen\Obj\sensor_io.r51            #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Design\Source\IO\sensor_io.c
+      1          #include <ioCC2530.h>
+
+   \                                 In  segment SFR_AN, at 0x80
+   \   union <unnamed> volatile __sfr _A_P0
+   \                     _A_P0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x89
+   \   unsigned char volatile __sfr P0IFG
+   \                     P0IFG:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x8c
+   \   unsigned char volatile __sfr PICTL
+   \                     PICTL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xab
+   \   unsigned char volatile __sfr P0IEN
+   \                     P0IEN:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xb8
+   \   union <unnamed> volatile __sfr _A_IEN1
+   \                     _A_IEN1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc0
+   \   union <unnamed> volatile __sfr _A_IRCON
+   \                     _A_IRCON:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfe
+   \   unsigned char volatile __sfr P1DIR
+   \                     P1DIR:
+   \   000000                DS 1
+      2          #include "OnBoard.h"
+      3          #include "dht11.h"
+      4          
+      5          #define BEEP P1_3
+      6          #define KEY P0_1
+      7          
+      8          void SENSIO_Init(void);
+      9          void open(void);
+     10          void close(void);
+     11          void openkey(void);
+     12          void closekey(void);
+     13          __interrupt void S1_ISR(void);
+     14          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     15          void SENSIO_Init(void)
+   \                     SENSIO_Init:
+     16          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     17              P1DIR |= 0X08;
+   \   000000   43FE08       ORL     0xfe,#0x8
+     18              BEEP = 1;
+   \   000003   D293         SETB    0x90.3
+     19          
+     20              P0IEN |= 0X2; //P01设置为中断方式
+   \   000005   43AB02       ORL     0xab,#0x2
+     21              PICTL |= 0X2; // 下降沿触发
+   \   000008   438C02       ORL     0x8c,#0x2
+     22              IEN1 |= 0X20; // 允许P0口中断;
+   \   00000B   D2BD         SETB    0xb8.5
+     23              P0IFG = 0x00; // 初始化中断标志位
+   \   00000D   758900       MOV     0x89,#0x0
+     24              EA = 1;
+   \   000010   D2AF         SETB    0xa8.7
+     25          }
+   \   000012   02....       LJMP    ?BRET
+   \   000015                REQUIRE P1DIR
+   \   000015                REQUIRE _A_P1
+   \   000015                REQUIRE P0IEN
+   \   000015                REQUIRE PICTL
+   \   000015                REQUIRE _A_IEN1
+   \   000015                REQUIRE P0IFG
+   \   000015                REQUIRE _A_IEN0
+     26          
+     27          #pragma vector = P0INT_VECTOR //格式：#pragma vector = 中断向量，紧接着是中断处理程序
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+     28          __interrupt void S1_ISR(void)
+   \                     S1_ISR:
+     29          {
+   \   000000   C0E0         PUSH    A
+   \   000002   74F2         MOV     A,#-0xe
+   \   000004   12....       LCALL   ?INTERRUPT_ENTER_XSP
+   \   000007                ; Saved register size: 15
+   \   000007                ; Auto size: 0
+     30              Delay_ms(10);  //去除抖动
+   \   000007                ; Setup parameters for call to function Delay_ms
+   \   000007   7A0A         MOV     R2,#0xa
+   \   000009   7B00         MOV     R3,#0x0
+   \   00000B   12....       LCALL   ??Delay_ms?relay
+     31              BEEP = ~BEEP; //改变LED1状态
+   \   00000E   D2F0         SETB    B.0
+   \   000010   A293         MOV     C,0x90.3
+   \   000012   30F001       JNB     B.0,??S1_ISR_0
+   \   000015   B3           CPL     C
+   \                     ??S1_ISR_0:
+   \   000016   9293         MOV     0x90.3,C
+     32              P0IFG = 0;    //清中断标志
+   \   000018   758900       MOV     0x89,#0x0
+     33              P0IF = 0;     //清中断标志
+   \   00001B   C2C5         CLR     0xc0.5
+     34          }
+   \   00001D   7F01         MOV     R7,#0x1
+   \   00001F   02....       LJMP    ?INTERRUPT_LEAVE_XSP
+   \   000022                REQUIRE _A_P1
+   \   000022                REQUIRE P0IFG
+   \   000022                REQUIRE _A_IRCON
+     35          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     36          void open(void)
+   \                     open:
+     37          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     38              BEEP = 1;
+   \   000000   D293         SETB    0x90.3
+     39          }
+   \   000002   02....       LJMP    ?BRET
+   \   000005                REQUIRE _A_P1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     40          void close(void)
+   \                     close:
+     41          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     42              BEEP = 0;
+   \   000000                REQUIRE ?Subroutine0
+   \   000000                REQUIRE _A_P1
+   \   000000                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   C293         CLR     0x90.3
+     43          }
+   \   000002   02....       LJMP    ?BRET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     44          void openkey(void)
+   \                     openkey:
+     45          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     46              if (KEY == 1)
+   \   000000   A281         MOV     C,0x80.1
+   \   000002   5004         JNC     ??openkey_0
+     47                  open();
+   \   000004   D293         SETB    0x90.3
+   \   000006   8002         SJMP    ??openkey_1
+     48              else
+     49                  close();
+   \                     ??openkey_0:
+   \   000008   C293         CLR     0x90.3
+     50          }
+   \                     ??openkey_1:
+   \   00000A   02....       LJMP    ?BRET
+   \   00000D                REQUIRE _A_P0
+   \   00000D                REQUIRE _A_P1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     51          void closekey(void)
+   \                     closekey:
+     52          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     53              BEEP = 0;
+   \   000000   80..         SJMP    ?Subroutine0
+   \   000002                REQUIRE _A_P1
+     54          }
+
+   \                                 In  segment INTVEC, offset 0x6b, root
+   \                     `??S1_ISR??INTVEC 107`:
+   \   00006B   02....       LJMP       (S1_ISR)
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SENSIO_Init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SENSIO_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??open?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    open
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??close?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    close
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??openkey?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    openkey
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??closekey?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    closekey
+
+   Maximum stack usage in bytes:
+
+     Function      ISTACK PSTACK XSTACK
+     --------      ------ ------ ------
+     S1_ISR           15      0      0
+       -> Delay_ms    30      0      0
+     SENSIO_Init       0      0      0
+     close             0      0      0
+     closekey          0      0      0
+     open              0      0      0
+     openkey           0      0      0
+
+
+   Segment part sizes:
+
+     Function/Label       Bytes
+     --------------       -----
+     _A_P0                   1
+     P0IFG                   1
+     PICTL                   1
+     _A_P1                   1
+     _A_IEN0                 1
+     P0IEN                   1
+     _A_IEN1                 1
+     _A_IRCON                1
+     P1DIR                   1
+     SENSIO_Init            21
+     S1_ISR                 34
+     open                    5
+     close                   0
+     ?Subroutine0            5
+     openkey                13
+     closekey                2
+     ??S1_ISR??INTVEC 107    3
+     ??SENSIO_Init?relay     6
+     ??open?relay            6
+     ??close?relay           6
+     ??openkey?relay         6
+     ??closekey?relay        6
+
+ 
+ 46 bytes in segment BANKED_CODE
+ 30 bytes in segment BANK_RELAYS
+  3 bytes in segment INTVEC
+ 34 bytes in segment NEAR_CODE
+  9 bytes in segment SFR_AN
+ 
+ 110 bytes of CODE memory (+ 3 bytes shared)
+   0 bytes of DATA memory (+ 9 bytes shared)
+
+Errors: none
+Warnings: none

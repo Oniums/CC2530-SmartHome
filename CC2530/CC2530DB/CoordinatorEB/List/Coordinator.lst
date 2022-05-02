@@ -1,0 +1,1416 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         22/Dec/2020  13:13:29 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\Source\Coordinator.c                          #
+#    Command line       =  -f D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples #
+#                          \Design\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord. #
+#                          cfg (-DCPU32MHZ -DROOT=__near_func                 #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples #
+#                          \Design\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig #
+#                          .cfg (-DZIGBEEPRO -DSECURE=0                       #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00020000                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x19 -DNWK_START_DELAY=100   #
+#                          -DEXTENDED_JOINING_RANDOM_MASK=0x007F              #
+#                          -DBEACON_REQUEST_DELAY=100                         #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 D:\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\Design\Source\Coordinator.c   #
+#                          -D ZTOOL_P1 -D xMT_TASK -D xMT_SYS_FUNC -D         #
+#                          xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -lC           #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\CoordinatorEB\List\ -lA              #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\CoordinatorEB\List\ --diag_suppress  #
+#                          Pe001,Pa010 -o D:\ZStack-CC2530-2.5.1a\Projects\zs #
+#                          tack\Samples\Design\CC2530DB\CoordinatorEB\Obj\    #
+#                          -e --no_code_motion --debug --core=plain           #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I D:\ZStack-CC2530-2.5.1a\Pr #
+#                          ojects\zstack\Samples\Design\CC2530DB\ -I          #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\Source\ -I                        #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\Source\IO\ -I                     #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\ZMain\TI2530DB\ -I          #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\hal\includ #
+#                          e\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samp #
+#                          les\Design\CC2530DB\..\..\..\..\..\Components\hal\ #
+#                          target\CC2530EB\ -I D:\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Samples\Design\CC2530DB\..\..\..\..\..\C #
+#                          omponents\mac\include\ -I                          #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\mac\high_l #
+#                          evel\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\Design\CC2530DB\..\..\..\..\..\Components\m #
+#                          ac\low_level\srf04\ -I D:\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\Design\CC2530DB\..\..\..\..\. #
+#                          .\Components\mac\low_level\srf04\single_chip\ -I   #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\mt\ -I     #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\osal\inclu #
+#                          de\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\Sam #
+#                          ples\Design\CC2530DB\..\..\..\..\..\Components\ser #
+#                          vices\saddr\ -I D:\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Samples\Design\CC2530DB\..\..\..\..\..\Compo #
+#                          nents\services\sdata\ -I                           #
+#                          D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\..\..\..\..\..\Components\stack\af\  #
+#                          -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples #
+#                          \Design\CC2530DB\..\..\..\..\..\Components\stack\n #
+#                          wk\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstack\Sam #
+#                          ples\Design\CC2530DB\..\..\..\..\..\Components\sta #
+#                          ck\sapi\ -I D:\ZStack-CC2530-2.5.1a\Projects\zstac #
+#                          k\Samples\Design\CC2530DB\..\..\..\..\..\Component #
+#                          s\stack\sec\ -I D:\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Samples\Design\CC2530DB\..\..\..\..\..\Compo #
+#                          nents\stack\sys\ -I D:\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Samples\Design\CC2530DB\..\..\..\..\..\C #
+#                          omponents\stack\zdo\ -I D:\ZStack-CC2530-2.5.1a\Pr #
+#                          ojects\zstack\Samples\Design\CC2530DB\..\..\..\..\ #
+#                          ..\Components\zmac\ -I D:\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\Design\CC2530DB\..\..\..\..\. #
+#                          .\Components\zmac\f8w\ -Ohz --require_prototypes   #
+#    List file          =  D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\CoordinatorEB\List\Coordinator.lst   #
+#    Object file        =  D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\De #
+#                          sign\CC2530DB\CoordinatorEB\Obj\Coordinator.r51    #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Design\Source\Coordinator.c
+      1          #include "ZComDef.h"
+      2          #include "osal.h"
+      3          #include "sapi.h"
+      4          #include "hal_uart.h"
+
+   \                                 In  segment SFR_AN, at 0x80
+   \   union <unnamed> volatile __sfr _A_P0
+   \                     _A_P0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf3
+   \   unsigned char volatile __sfr P0SEL
+   \                     P0SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfd
+   \   unsigned char volatile __sfr P0DIR
+   \                     P0DIR:
+   \   000000                DS 1
+      5          #include "smartHome.h"
+      6          #include "stdio.h"
+      7          #include "hal_led.h"
+      8          #include "string.h"
+      9          #include "bh1750.h"
+     10          #include "coordinator_io.h"
+     11          
+     12          #define NUM_IN_CMD_COORINATOR 2
+     13          #define NUM_OUT_CMD_COORINATOR 1
+     14          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     15          uint16 L_VAL;
+   \                     L_VAL:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     16          uint16 L_STATE = 0;
+   \                     L_STATE:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     17          uint16 AUTO = 0;
+   \                     AUTO:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     18          uint8 COORINFO[10];
+   \                     COORINFO:
+   \   000000                DS 10
+   \   00000A                REQUIRE __INIT_XDATA_Z
+     19          void *DeviceNode(void);
+     20          uint16 Light(void);
+     21          void Receive(uint8 port, uint8 event);
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     22          const cId_t coordinatorInputCommandList[NUM_IN_CMD_COORINATOR] =
+   \                     coordinatorInputCommandList:
+   \   000000   0100         DW 1
+   \   000002   0200         DW 2
+     23              {ENDJOINNET_CMD_ID, DATA_SEND_CMD_ID};
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     24          const cId_t coordinatorOutputCommandList[NUM_OUT_CMD_COORINATOR] =
+   \                     coordinatorOutputCommandList:
+   \   000000   0300         DW 3
+     25              {TOGGLE_CMD_ID};
+     26          
+     27          struct device_list
+     28          {
+     29            struct device_list *next;
+     30            unsigned char DEVICEINFO[50];
+     31            unsigned char DEVICENAME[2];
+     32            unsigned char ADDR[2];
+     33            unsigned int HEART;
+     34          };
+     35          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     36          void *DeviceNode(void)
+   \                     DeviceNode:
+     37          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     38            return osal_mem_alloc(sizeof(struct device_list));
+   \   000004                ; Setup parameters for call to function osal_mem_alloc
+   \   000004   7A3A         MOV     R2,#0x3a
+   \   000006   7B00         MOV     R3,#0x0
+   \   000008   12....       LCALL   ??osal_mem_alloc?relay
+   \   00000B   D083         POP     DPH
+   \   00000D   D082         POP     DPL
+   \   00000F   02....       LJMP    ?BRET
+     39          }
+     40          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     41          static struct device_list DeviceHeader = {NULL};
+   \                     DeviceHeader:
+   \   000000                DS 58
+   \   00003A                REQUIRE __INIT_XDATA_Z
+     42          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     43          const SimpleDescriptionFormat_t zb_SimpleDesc =
+   \                     zb_SimpleDesc:
+   \   000000   01           DB 1
+   \   000001   0105         DW 1281
+   \   000003   0100         DW 1
+   \   000005   00           DB 0
+   \   000006   02           DB 2
+   \   000007   ....         DW coordinatorInputCommandList
+   \   000009   01           DB 1
+   \   00000A   ....         DW coordinatorOutputCommandList
+     44              {
+     45                  ENDPOINT_ID_SMARTHOME,
+     46                  PROFILE_ID_SMARTHOME,
+     47                  DEVICE_ID_COORDINATOR,
+     48                  DEVIDE_VERSION_ID,
+     49                  0,
+     50                  NUM_IN_CMD_COORINATOR,
+     51                  (cId_t *)coordinatorInputCommandList,
+     52                  NUM_OUT_CMD_COORINATOR,
+     53                  (cId_t *)coordinatorOutputCommandList};
+     54          
+     55          //用来处理用户的自定义事件
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     56          void zb_HandleOsalEvent(uint16 event)
+   \                     zb_HandleOsalEvent:
+     57          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+     58            if (event & DEVICE_HEART)
+   \   000005   EA           MOV     A,R2
+   \   000006   5402         ANL     A,#0x2
+   \   000008   7003         JNZ     $+5
+   \   00000A   02....       LJMP    ??zb_HandleOsalEvent_0 & 0xFFFF
+     59            {
+     60              L_VAL = Light();
+   \   00000D                ; Setup parameters for call to function Light
+   \   00000D   12....       LCALL   ??Light?relay
+   \   000010   90....       MOV     DPTR,#L_VAL
+   \   000013   EA           MOV     A,R2
+   \   000014   F0           MOVX    @DPTR,A
+   \   000015   A3           INC     DPTR
+   \   000016   EB           MOV     A,R3
+   \   000017   F0           MOVX    @DPTR,A
+     61              if (AUTO == 1)
+   \   000018   90....       MOV     DPTR,#AUTO
+   \   00001B   E0           MOVX    A,@DPTR
+   \   00001C   6401         XRL     A,#0x1
+   \   00001E   7002         JNZ     ??zb_HandleOsalEvent_1
+   \   000020   A3           INC     DPTR
+   \   000021   E0           MOVX    A,@DPTR
+   \                     ??zb_HandleOsalEvent_1:
+   \   000022   7018         JNZ     ??zb_HandleOsalEvent_2
+     62              {
+     63                if (L_VAL < 300)
+   \   000024   90....       MOV     DPTR,#L_VAL
+   \   000027   C3           CLR     C
+   \   000028   E0           MOVX    A,@DPTR
+   \   000029   942C         SUBB    A,#0x2c
+   \   00002B   A3           INC     DPTR
+   \   00002C   E0           MOVX    A,@DPTR
+   \   00002D   9401         SUBB    A,#0x1
+   \   00002F   5004         JNC     ??zb_HandleOsalEvent_3
+     64                {
+     65                  HalLedSet(HAL_LED_2, HAL_LED_MODE_ON);
+   \   000031                ; Setup parameters for call to function HalLedSet
+   \   000031   7A01         MOV     R2,#0x1
+   \   000033   8002         SJMP    ??zb_HandleOsalEvent_4
+     66                }
+     67                else if (L_VAL >= 300)
+     68                {
+     69                  HalLedSet(HAL_LED_2, HAL_LED_MODE_OFF);
+   \                     ??zb_HandleOsalEvent_3:
+   \   000035                ; Setup parameters for call to function HalLedSet
+   \   000035   7A00         MOV     R2,#0x0
+   \                     ??zb_HandleOsalEvent_4:
+   \   000037   7902         MOV     R1,#0x2
+   \   000039   12....       LCALL   ??HalLedSet?relay
+     70                }
+     71              }
+     72              L_STATE=LIGHT_STATE();
+   \                     ??zb_HandleOsalEvent_2:
+   \   00003C                ; Setup parameters for call to function LIGHT_STATE
+   \   00003C   12....       LCALL   ??LIGHT_STATE?relay
+   \   00003F   90....       MOV     DPTR,#L_STATE
+   \   000042   EA           MOV     A,R2
+   \   000043   F0           MOVX    @DPTR,A
+   \   000044   A3           INC     DPTR
+   \   000045   EB           MOV     A,R3
+   \   000046   F0           MOVX    @DPTR,A
+     73              sprintf(COORINFO, "COOR,%d,%d", L_VAL, L_STATE);
+                             ^
+Warning[Pe167]: argument of type "unsigned char *" is incompatible with
+          parameter of type "char *"
+   \   000047                ; Setup parameters for call to function sprintf
+   \   000047   90....       MOV     DPTR,#L_STATE
+   \   00004A   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   00004D   90....       MOV     DPTR,#L_VAL
+   \   000050   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   000053   7C..         MOV     R4,#`?<Constant "COOR,%d,%d">` & 0xff
+   \   000055   7D..         MOV     R5,#(`?<Constant "COOR,%d,%d">` >> 8) & 0xff
+   \   000057   7A..         MOV     R2,#COORINFO & 0xff
+   \   000059   7B..         MOV     R3,#(COORINFO >> 8) & 0xff
+   \   00005B   12....       LCALL   ??sprintf?relay
+   \   00005E   7404         MOV     A,#0x4
+   \   000060   12....       LCALL   ?DEALLOC_XSTACK8
+     74              struct device_list *p = DeviceHeader.next;
+   \   000063   90....       MOV     DPTR,#DeviceHeader
+   \   000066   12....       LCALL   ?Subroutine3 & 0xFFFF
+     75              HalUARTWrite(0, COORINFO, osal_strlen(COORINFO));
+                                                           ^
+Warning[Pe167]: argument of type "unsigned char *" is incompatible with
+          parameter of type "char *"
+   \                     ??CrossCallReturnLabel_4:
+   \   000069                ; Setup parameters for call to function HalUARTWrite
+   \   000069                ; Setup parameters for call to function osal_strlen
+   \   000069   7A..         MOV     R2,#COORINFO & 0xff
+   \   00006B   7B..         MOV     R3,#(COORINFO >> 8) & 0xff
+   \   00006D   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   000070   7A..         MOV     R2,#COORINFO & 0xff
+   \   000072   7B..         MOV     R3,#(COORINFO >> 8) & 0xff
+   \   000074   12....       LCALL   ?Subroutine0 & 0xFFFF
+     76              HalUARTWrite(0, ";", osal_strlen(";"));
+   \                     ??CrossCallReturnLabel_0:
+   \   000077   8052         SJMP    ??CrossCallReturnLabel_5
+     77              while (p != NULL)
+     78              {
+     79                if (p->HEART == 0)
+   \                     ??zb_HandleOsalEvent_5:
+   \   000079   E5..         MOV     A,?V0 + 0
+   \   00007B   2438         ADD     A,#0x38
+   \   00007D   F582         MOV     DPL,A
+   \   00007F   E5..         MOV     A,?V0 + 1
+   \   000081   3400         ADDC    A,#0x0
+   \   000083   F583         MOV     DPH,A
+   \   000085   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   000088   6038         JZ      ??CrossCallReturnLabel_1
+     80                {
+     81                  p = p->next;
+     82                  continue;
+     83                }
+     84                p->HEART--;
+   \   00008A   E5..         MOV     A,?V0 + 0
+   \   00008C   2438         ADD     A,#0x38
+   \   00008E   F8           MOV     R0,A
+   \   00008F   E5..         MOV     A,?V0 + 1
+   \   000091   3400         ADDC    A,#0x0
+   \   000093   F9           MOV     R1,A
+   \   000094   8882         MOV     DPL,R0
+   \   000096   8983         MOV     DPH,R1
+   \   000098   E0           MOVX    A,@DPTR
+   \   000099   24FF         ADD     A,#-0x1
+   \   00009B   F0           MOVX    @DPTR,A
+   \   00009C   A3           INC     DPTR
+   \   00009D   E0           MOVX    A,@DPTR
+   \   00009E   34FF         ADDC    A,#-0x1
+   \   0000A0   F0           MOVX    @DPTR,A
+     85                if (p->HEART == 0)
+   \   0000A1   8882         MOV     DPL,R0
+   \   0000A3   8983         MOV     DPH,R1
+   \   0000A5   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   0000A8   6018         JZ      ??CrossCallReturnLabel_1
+     86                {
+     87                  p = p->next;
+     88                  continue;
+     89                }
+     90                HalUARTWrite(0, p->DEVICEINFO, osal_strlen(p->DEVICEINFO));
+                                                                  ^
+Warning[Pe167]: argument of type "unsigned char *" is incompatible with
+          parameter of type "char *"
+   \   0000AA   E5..         MOV     A,?V0 + 0
+   \   0000AC   2402         ADD     A,#0x2
+   \   0000AE   FE           MOV     R6,A
+   \   0000AF   E5..         MOV     A,?V0 + 1
+   \   0000B1   3400         ADDC    A,#0x0
+   \   0000B3   FF           MOV     R7,A
+   \   0000B4                ; Setup parameters for call to function HalUARTWrite
+   \   0000B4                ; Setup parameters for call to function osal_strlen
+   \   0000B4   EE           MOV     A,R6
+   \   0000B5   FA           MOV     R2,A
+   \   0000B6   EF           MOV     A,R7
+   \   0000B7   FB           MOV     R3,A
+   \   0000B8   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   0000BB   EE           MOV     A,R6
+   \   0000BC   FA           MOV     R2,A
+   \   0000BD   EF           MOV     A,R7
+   \   0000BE   FB           MOV     R3,A
+   \   0000BF   12....       LCALL   ?Subroutine0 & 0xFFFF
+     91                HalUARTWrite(0, ";", osal_strlen(";"));
+   \                     ??CrossCallReturnLabel_1:
+   \   0000C2   85..82       MOV     DPL,?V0 + 0
+   \   0000C5   85..83       MOV     DPH,?V0 + 1
+   \   0000C8   12....       LCALL   ?Subroutine3 & 0xFFFF
+     92                p = p->next;
+     93              }
+   \                     ??CrossCallReturnLabel_5:
+   \   0000CB   E5..         MOV     A,?V0 + 0
+   \   0000CD   45..         ORL     A,?V0 + 1
+   \   0000CF   70A8         JNZ     ??zb_HandleOsalEvent_5
+     94            }
+     95          }
+   \                     ??zb_HandleOsalEvent_0:
+   \   0000D1   7F02         MOV     R7,#0x2
+   \   0000D3   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7900         MOV     R1,#0x0
+   \   000002   12....       LCALL   ??HalUARTWrite?relay
+   \   000005                ; Setup parameters for call to function HalUARTWrite
+   \   000005                ; Setup parameters for call to function osal_strlen
+   \   000005                ; Setup parameters for call to function HalUARTWrite
+   \   000005                ; Setup parameters for call to function osal_strlen
+   \   000005   7A..         MOV     R2,#`?<Constant ";">` & 0xff
+   \   000007   7B..         MOV     R3,#(`?<Constant ";">` >> 8) & 0xff
+   \   000009   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
+   \   00000C   7A..         MOV     R2,#`?<Constant ";">` & 0xff
+   \   00000E   7B..         MOV     R3,#(`?<Constant ";">` >> 8) & 0xff
+   \   000010   7900         MOV     R1,#0x0
+   \   000012   12....       LCALL   ??HalUARTWrite?relay
+   \   000015   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   12....       LCALL   ??osal_strlen?relay
+   \   000003   EA           MOV     A,R2
+   \   000004   FC           MOV     R4,A
+   \   000005   EB           MOV     A,R3
+   \   000006   FD           MOV     R5,A
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F5..         MOV     ?V0 + 0,A
+   \   000003   A3           INC     DPTR
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   F5..         MOV     ?V0 + 1,A
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F9           MOV     R1,A
+   \   000005   E8           MOV     A,R0
+   \   000006   49           ORL     A,R1
+   \   000007   22           RET
+     96          //用来处理按键消息
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     97          void zb_HandleKeys(uint8 shift, uint8 keys)
+   \                     zb_HandleKeys:
+     98          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     99          }
+   \   000000   02....       LJMP    ?BRET
+    100          //当构建网络或加入网络成功时被调用
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    101          void zb_StartConfirm(uint8 status)
+   \                     zb_StartConfirm:
+    102          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 29
+   \   000005   74E3         MOV     A,#-0x1d
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   E9           MOV     A,R1
+   \   00000B   FE           MOV     R6,A
+    103            HalLedSet(HAL_LED_1, HAL_LED_MODE_ON);
+   \   00000C                ; Setup parameters for call to function HalLedSet
+   \   00000C   7A01         MOV     R2,#0x1
+   \   00000E   7901         MOV     R1,#0x1
+   \   000010   12....       LCALL   ??HalLedSet?relay
+    104            HalLedSet(HAL_LED_2, HAL_LED_MODE_OFF);
+   \   000013                ; Setup parameters for call to function HalLedSet
+   \   000013   7A00         MOV     R2,#0x0
+   \   000015   7902         MOV     R1,#0x2
+   \   000017   12....       LCALL   ??HalLedSet?relay
+    105            halUARTCfg_t uartcfg;
+    106            uartcfg.baudRate = HAL_UART_BR_115200;
+   \   00001A   7401         MOV     A,#0x1
+   \   00001C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001F   7404         MOV     A,#0x4
+   \   000021   F0           MOVX    @DPTR,A
+    107            uartcfg.flowControl = FALSE;
+   \   000022   7402         MOV     A,#0x2
+   \   000024   12....       LCALL   ?XSTACK_DISP0_8
+   \   000027   E4           CLR     A
+   \   000028   F0           MOVX    @DPTR,A
+    108            uartcfg.callBackFunc = Receive;
+   \   000029   741B         MOV     A,#0x1b
+   \   00002B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00002E   74..         MOV     A,#??Receive?relay & 0xff
+   \   000030   F0           MOVX    @DPTR,A
+   \   000031   A3           INC     DPTR
+   \   000032   74..         MOV     A,#(??Receive?relay >> 8) & 0xff
+   \   000034   F0           MOVX    @DPTR,A
+    109            HalUARTOpen(0, &uartcfg);
+   \   000035                ; Setup parameters for call to function HalUARTOpen
+   \   000035   85..82       MOV     DPL,?XSP + 0
+   \   000038   85..83       MOV     DPH,?XSP + 1
+   \   00003B   AA82         MOV     R2,DPL
+   \   00003D   AB83         MOV     R3,DPH
+   \   00003F   7900         MOV     R1,#0x0
+   \   000041   12....       LCALL   ??HalUARTOpen?relay
+    110            L_STATE = 0;
+   \   000044   90....       MOV     DPTR,#L_STATE
+   \   000047   E4           CLR     A
+   \   000048   F0           MOVX    @DPTR,A
+   \   000049   A3           INC     DPTR
+   \   00004A   F0           MOVX    @DPTR,A
+    111            if (status == ZSUCCESS)
+   \   00004B   EE           MOV     A,R6
+   \   00004C   7010         JNZ     ??zb_StartConfirm_0
+    112            {
+    113              osal_start_reload_timer(sapi_TaskID, DEVICE_HEART, 2000);
+   \   00004E                ; Setup parameters for call to function osal_start_reload_timer
+   \   00004E   7CD0         MOV     R4,#-0x30
+   \   000050   7D07         MOV     R5,#0x7
+   \   000052   7A02         MOV     R2,#0x2
+   \   000054   7B00         MOV     R3,#0x0
+   \   000056   90....       MOV     DPTR,#sapi_TaskID
+   \   000059   E0           MOVX    A,@DPTR
+   \   00005A   F9           MOV     R1,A
+   \   00005B   12....       LCALL   ??osal_start_reload_timer?relay
+    114            }
+    115          }
+   \                     ??zb_StartConfirm_0:
+   \   00005E   741D         MOV     A,#0x1d
+   \   000060   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000063   7F01         MOV     R7,#0x1
+   \   000065   02....       LJMP    ?BANKED_LEAVE_XDATA
+    116          //当数据包被接收方收到时调用
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    117          void zb_SendDataConfirm(uint8 handle, uint8 status)
+   \                     zb_SendDataConfirm:
+    118          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    119          }
+   \   000000   02....       LJMP    ?BRET
+    120          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    121          void zb_BindConfirm(uint16 commandId, uint8 status)
+   \                     zb_BindConfirm:
+    122          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    123          }
+   \   000000   02....       LJMP    ?BRET
+    124          //其它节点绑定到该节点时调用
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    125          void zb_AllowBindConfirm(uint16 source)
+   \                     zb_AllowBindConfirm:
+    126          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    127            (void)source;
+    128          }
+   \   000000   02....       LJMP    ?BRET
+    129          //用户任务通过zb_FindDeviceRequest通过节点的物理地址获取节点的网络地址时的调用
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    130          void zb_FindDeviceConfirm(uint8 searchType, uint8 *searchKey, uint8 *result)
+   \                     zb_FindDeviceConfirm:
+    131          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    132          }
+   \   000000   02....       LJMP    ?BRET
+    133          
+    134          /******************************************************************************
+    135           * @fn          zb_ReceiveDataIndication
+    136           *
+    137           * @brief       The zb_ReceiveDataIndication callback function is called
+    138           *              asynchronously by the ZigBee stack to notify the application
+    139           *              when data is received from a peer device.
+    140           *
+    141           * @param       source - The short address of the peer device that sent the data
+    142           *              command - The commandId associated with the data
+    143           *              len - The number of bytes in the pData parameter
+    144           *              pData - The data sent by the peer device
+    145           *
+    146           * @return      none
+    147           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    148          void zb_ReceiveDataIndication(uint16 source, uint16 command, uint16 len, uint8 *pData)
+   \                     zb_ReceiveDataIndication:
+    149          {
+   \   000000   74F1         MOV     A,#-0xf
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 15
+   \   000005                ; Auto size: 2
+   \   000005   74FE         MOV     A,#-0x2
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   85..82       MOV     DPL,?XSP + 0
+   \   00000D   85..83       MOV     DPH,?XSP + 1
+   \   000010   EA           MOV     A,R2
+   \   000011   F0           MOVX    @DPTR,A
+   \   000012   A3           INC     DPTR
+   \   000013   EB           MOV     A,R3
+   \   000014   F0           MOVX    @DPTR,A
+   \   000015   7411         MOV     A,#0x11
+   \   000017   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001A   E0           MOVX    A,@DPTR
+   \   00001B   F5..         MOV     ?V0 + 2,A
+   \   00001D   A3           INC     DPTR
+   \   00001E   E0           MOVX    A,@DPTR
+   \   00001F   F5..         MOV     ?V0 + 3,A
+   \   000021   7413         MOV     A,#0x13
+   \   000023   12....       LCALL   ?XSTACK_DISP0_8
+   \   000026   12....       LCALL   ?Subroutine3 & 0xFFFF
+    150            if (command == ENDJOINNET_CMD_ID)
+   \                     ??CrossCallReturnLabel_6:
+   \   000029   7401         MOV     A,#0x1
+   \   00002B   6C           XRL     A,R4
+   \   00002C   7001         JNZ     ??zb_ReceiveDataIndication_0
+   \   00002E   ED           MOV     A,R5
+   \                     ??zb_ReceiveDataIndication_0:
+   \   00002F   6003         JZ      $+5
+   \   000031   02....       LJMP    ??zb_ReceiveDataIndication_1 & 0xFFFF
+    151            {
+    152              struct device_list *p = DeviceHeader.next;
+   \   000034   90....       MOV     DPTR,#DeviceHeader
+   \   000037   8033         SJMP    ??zb_ReceiveDataIndication_2
+    153              while (p != NULL)
+    154              {
+    155                if (osal_memcmp(pData, p->DEVICENAME, len) == TRUE)
+   \                     ??zb_ReceiveDataIndication_3:
+   \   000039                ; Setup parameters for call to function osal_memcmp
+   \   000039   EE           MOV     A,R6
+   \   00003A   2434         ADD     A,#0x34
+   \   00003C   F5..         MOV     ?V0 + 4,A
+   \   00003E   EF           MOV     A,R7
+   \   00003F   3400         ADDC    A,#0x0
+   \   000041   F5..         MOV     ?V0 + 5,A
+   \   000043   75..00       MOV     ?V0 + 6,#0x0
+   \   000046   78..         MOV     R0,#?V0 + 4
+   \   000048   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   00004B   AC..         MOV     R4,?V0 + 2
+   \   00004D   AD..         MOV     R5,?V0 + 3
+   \   00004F   85..82       MOV     DPL,?V0 + 0
+   \   000052   85..83       MOV     DPH,?V0 + 1
+   \   000055   A982         MOV     R1,DPL
+   \   000057   AA83         MOV     R2,DPH
+   \   000059   7B00         MOV     R3,#0x0
+   \   00005B   12....       LCALL   ??osal_memcmp?relay
+   \   00005E   7403         MOV     A,#0x3
+   \   000060   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000063   E9           MOV     A,R1
+   \   000064   6401         XRL     A,#0x1
+   \   000066   606E         JZ      ??zb_ReceiveDataIndication_4
+    156                  break;
+    157                else
+    158                {
+    159                  p = p->next;
+   \   000068   8E82         MOV     DPL,R6
+   \   00006A   8F83         MOV     DPH,R7
+   \                     ??zb_ReceiveDataIndication_2:
+   \   00006C   E0           MOVX    A,@DPTR
+   \   00006D   FE           MOV     R6,A
+   \   00006E   A3           INC     DPTR
+   \   00006F   E0           MOVX    A,@DPTR
+   \   000070   FF           MOV     R7,A
+    160                }
+    161              }
+   \   000071   EE           MOV     A,R6
+   \   000072   4F           ORL     A,R7
+   \   000073   70C4         JNZ     ??zb_ReceiveDataIndication_3
+    162              if (p == NULL) //新节点加入
+    163              {
+    164                struct device_list *np = (struct device_list *)DeviceNode();
+   \   000075                ; Setup parameters for call to function osal_mem_alloc
+   \   000075   7A3A         MOV     R2,#0x3a
+   \   000077   7B00         MOV     R3,#0x0
+   \   000079   12....       LCALL   ??osal_mem_alloc?relay
+   \   00007C   8A..         MOV     ?V0 + 4,R2
+   \   00007E   8B..         MOV     ?V0 + 5,R3
+   \   000080   AE..         MOV     R6,?V0 + 4
+   \   000082   AF..         MOV     R7,?V0 + 5
+    165                osal_memcpy(np->ADDR, &source, 2);
+   \   000084                ; Setup parameters for call to function osal_memcpy
+   \   000084   85..82       MOV     DPL,?XSP + 0
+   \   000087   85..83       MOV     DPH,?XSP + 1
+   \   00008A   A982         MOV     R1,DPL
+   \   00008C   AA83         MOV     R2,DPH
+   \   00008E   89..         MOV     ?V0 + 4,R1
+   \   000090   8A..         MOV     ?V0 + 5,R2
+   \   000092   75..00       MOV     ?V0 + 6,#0x0
+   \   000095   78..         MOV     R0,#?V0 + 4
+   \   000097   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   00009A   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   00009D   12....       LCALL   ?DEALLOC_XSTACK8
+    166                osal_memcpy(np->DEVICENAME, pData, len);
+   \   0000A0                ; Setup parameters for call to function osal_memcpy
+   \   0000A0   85....       MOV     ?V0 + 4,?V0 + 0
+   \   0000A3   85....       MOV     ?V0 + 5,?V0 + 1
+   \   0000A6   78..         MOV     R0,#?V0 + 4
+   \   0000A8   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   0000AB   AC..         MOV     R4,?V0 + 2
+   \   0000AD   AD..         MOV     R5,?V0 + 3
+   \   0000AF   EE           MOV     A,R6
+   \   0000B0   2434         ADD     A,#0x34
+   \   0000B2   12....       LCALL   ??Subroutine8_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   0000B5   12....       LCALL   ?DEALLOC_XSTACK8
+    167                np->HEART = HEART_BEAT_MAX_COUNT;
+   \   0000B8   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   0000BB   F0           MOVX    @DPTR,A
+    168                np->next = DeviceHeader.next; //头插
+   \   0000BC   90....       MOV     DPTR,#DeviceHeader
+   \   0000BF   E0           MOVX    A,@DPTR
+   \   0000C0   F8           MOV     R0,A
+   \   0000C1   A3           INC     DPTR
+   \   0000C2   E0           MOVX    A,@DPTR
+   \   0000C3   F9           MOV     R1,A
+   \   0000C4   8E82         MOV     DPL,R6
+   \   0000C6   8F83         MOV     DPH,R7
+   \   0000C8   E8           MOV     A,R0
+   \   0000C9   F0           MOVX    @DPTR,A
+   \   0000CA   A3           INC     DPTR
+   \   0000CB   E9           MOV     A,R1
+   \   0000CC   F0           MOVX    @DPTR,A
+    169                DeviceHeader.next = np;
+   \   0000CD   90....       MOV     DPTR,#DeviceHeader
+   \   0000D0   EE           MOV     A,R6
+   \   0000D1   F0           MOVX    @DPTR,A
+   \   0000D2   A3           INC     DPTR
+   \   0000D3   EF           MOV     A,R7
+   \   0000D4   8079         SJMP    ??CrossCallReturnLabel_3
+    170                p = np;
+    171              }
+    172              else
+    173              {
+    174                osal_memcpy(p->ADDR, &source, 2);
+   \                     ??zb_ReceiveDataIndication_4:
+   \   0000D6                ; Setup parameters for call to function osal_memcpy
+   \   0000D6   85..82       MOV     DPL,?XSP + 0
+   \   0000D9   85..83       MOV     DPH,?XSP + 1
+   \   0000DC   A982         MOV     R1,DPL
+   \   0000DE   AA83         MOV     R2,DPH
+   \   0000E0   89..         MOV     ?V0 + 0,R1
+   \   0000E2   8A..         MOV     ?V0 + 1,R2
+   \   0000E4   75..00       MOV     ?V0 + 2,#0x0
+   \   0000E7   78..         MOV     R0,#?V0 + 0
+   \   0000E9   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   0000EC   12....       LCALL   ?Subroutine1 & 0xFFFF
+    175              }
+    176            }
+   \                     ??CrossCallReturnLabel_18:
+   \   0000EF   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000F2   805C         SJMP    ??zb_ReceiveDataIndication_5
+    177            else if (command == DATA_SEND_CMD_ID)
+   \                     ??zb_ReceiveDataIndication_1:
+   \   0000F4   7402         MOV     A,#0x2
+   \   0000F6   6C           XRL     A,R4
+   \   0000F7   7001         JNZ     ??zb_ReceiveDataIndication_6
+   \   0000F9   ED           MOV     A,R5
+   \                     ??zb_ReceiveDataIndication_6:
+   \   0000FA   7054         JNZ     ??zb_ReceiveDataIndication_5
+    178            {
+    179              struct device_list *p = DeviceHeader.next;
+   \   0000FC   90....       MOV     DPTR,#DeviceHeader
+   \   0000FF   8004         SJMP    ??zb_ReceiveDataIndication_7
+    180              while (p != NULL)
+    181              {
+    182                if (pData[0] == p->DEVICENAME[0] && pData[1] == p->DEVICENAME[1])
+    183                  break;
+    184                else
+    185                {
+    186                  p = p->next;
+   \                     ??zb_ReceiveDataIndication_8:
+   \   000101   8E82         MOV     DPL,R6
+   \   000103   8F83         MOV     DPH,R7
+   \                     ??zb_ReceiveDataIndication_7:
+   \   000105   E0           MOVX    A,@DPTR
+   \   000106   FE           MOV     R6,A
+   \   000107   A3           INC     DPTR
+   \   000108   E0           MOVX    A,@DPTR
+   \   000109   FF           MOV     R7,A
+    187                }
+   \   00010A   EE           MOV     A,R6
+   \   00010B   4F           ORL     A,R7
+   \   00010C   6042         JZ      ??zb_ReceiveDataIndication_5
+   \   00010E   85..82       MOV     DPL,?V0 + 0
+   \   000111   85..83       MOV     DPH,?V0 + 1
+   \   000114   E0           MOVX    A,@DPTR
+   \   000115   F8           MOV     R0,A
+   \   000116   EE           MOV     A,R6
+   \   000117   2434         ADD     A,#0x34
+   \   000119   12....       LCALL   ?Subroutine5 & 0xFFFF
+    188              }
+   \                     ??CrossCallReturnLabel_15:
+   \   00011C   68           XRL     A,R0
+   \   00011D   70E2         JNZ     ??zb_ReceiveDataIndication_8
+   \   00011F   85..82       MOV     DPL,?V0 + 0
+   \   000122   85..83       MOV     DPH,?V0 + 1
+   \   000125   A3           INC     DPTR
+   \   000126   E0           MOVX    A,@DPTR
+   \   000127   F8           MOV     R0,A
+   \   000128   EE           MOV     A,R6
+   \   000129   2435         ADD     A,#0x35
+   \   00012B   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_16:
+   \   00012E   68           XRL     A,R0
+   \   00012F   70D0         JNZ     ??zb_ReceiveDataIndication_8
+    189              if (p != NULL)
+    190              {
+    191                osal_memcpy(p->DEVICEINFO, pData, len);
+   \   000131                ; Setup parameters for call to function osal_memcpy
+   \   000131   85....       MOV     ?V0 + 4,?V0 + 0
+   \   000134   85....       MOV     ?V0 + 5,?V0 + 1
+   \   000137   75..00       MOV     ?V0 + 6,#0x0
+   \   00013A   78..         MOV     R0,#?V0 + 4
+   \   00013C   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   00013F   AC..         MOV     R4,?V0 + 2
+   \   000141   AD..         MOV     R5,?V0 + 3
+   \   000143   EE           MOV     A,R6
+   \   000144   2402         ADD     A,#0x2
+   \   000146   12....       LCALL   ??Subroutine8_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   000149   12....       LCALL   ?DEALLOC_XSTACK8
+    192                p->HEART = HEART_BEAT_MAX_COUNT;
+   \   00014C   12....       LCALL   ?Subroutine2 & 0xFFFF
+    193              }
+    194            }
+   \                     ??CrossCallReturnLabel_3:
+   \   00014F   F0           MOVX    @DPTR,A
+    195          }
+   \                     ??zb_ReceiveDataIndication_5:
+   \   000150   7402         MOV     A,#0x2
+   \   000152   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000155   7F07         MOV     R7,#0x7
+   \   000157   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   F582         MOV     DPL,A
+   \   000002   EF           MOV     A,R7
+   \   000003                REQUIRE ??Subroutine7_0
+   \   000003                ; // Fall through to label ??Subroutine7_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine7_0:
+   \   000000   3400         ADDC    A,#0x0
+   \   000002   F583         MOV     DPH,A
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   EE           MOV     A,R6
+   \   000001   2438         ADD     A,#0x38
+   \   000003   F582         MOV     DPL,A
+   \   000005   EF           MOV     A,R7
+   \   000006   3400         ADDC    A,#0x0
+   \   000008   F583         MOV     DPH,A
+   \   00000A   7402         MOV     A,#0x2
+   \   00000C   F0           MOVX    @DPTR,A
+   \   00000D   A3           INC     DPTR
+   \   00000E   E4           CLR     A
+   \   00000F   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7C02         MOV     R4,#0x2
+   \   000002   7D00         MOV     R5,#0x0
+   \   000004   EE           MOV     A,R6
+   \   000005   2436         ADD     A,#0x36
+   \   000007                REQUIRE ??Subroutine8_0
+   \   000007                ; // Fall through to label ??Subroutine8_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine8_0:
+   \   000000   FA           MOV     R2,A
+   \   000001   EF           MOV     A,R7
+   \   000002   3400         ADDC    A,#0x0
+   \   000004   FB           MOV     R3,A
+   \   000005   12....       LCALL   ??osal_memcpy?relay
+   \   000008   7403         MOV     A,#0x3
+   \   00000A   22           RET
+    196          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    197          void Receive(uint8 port, uint8 event)
+   \                     Receive:
+    198          {
+   \   000000   74F5         MOV     A,#-0xb
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 11
+   \   000005                ; Auto size: 8
+   \   000005   74F8         MOV     A,#-0x8
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   EA           MOV     A,R2
+   \   00000B   FE           MOV     R6,A
+    199            uint16 dstAddr;
+    200            if (event & (HAL_UART_RX_FULL | HAL_UART_RX_ABOUT_FULL | HAL_UART_RX_TIMEOUT))
+   \   00000C   7407         MOV     A,#0x7
+   \   00000E   5E           ANL     A,R6
+   \   00000F   7003         JNZ     $+5
+   \   000011   02....       LJMP    ??Receive_0 & 0xFFFF
+    201            {
+    202              uint8 CMD[6];
+    203              HalUARTRead(port, CMD, 10);
+   \   000014                ; Setup parameters for call to function HalUARTRead
+   \   000014   7C0A         MOV     R4,#0xa
+   \   000016   7D00         MOV     R5,#0x0
+   \   000018   85..82       MOV     DPL,?XSP + 0
+   \   00001B   85..83       MOV     DPH,?XSP + 1
+   \   00001E   AA82         MOV     R2,DPL
+   \   000020   AB83         MOV     R3,DPH
+   \   000022   12....       LCALL   ??HalUARTRead?relay
+    204              struct device_list *p = DeviceHeader.next;
+   \   000025   90....       MOV     DPTR,#DeviceHeader
+   \   000028   8004         SJMP    ??Receive_1
+    205              while (p != NULL)
+    206              {
+    207                if (CMD[0] == p->DEVICENAME[0] && CMD[1] == p->DEVICENAME[1])
+    208                  break;
+    209                else
+    210                {
+    211                  p = p->next;
+   \                     ??Receive_2:
+   \   00002A   8882         MOV     DPL,R0
+   \   00002C   8983         MOV     DPH,R1
+    212                }
+   \                     ??Receive_1:
+   \   00002E   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   000031   7003         JNZ     $+5
+   \   000033   02....       LJMP    ??Receive_3 & 0xFFFF
+   \   000036   85..82       MOV     DPL,?XSP + 0
+   \   000039   85..83       MOV     DPH,?XSP + 1
+   \   00003C   E0           MOVX    A,@DPTR
+   \   00003D   FA           MOV     R2,A
+   \   00003E   E8           MOV     A,R0
+   \   00003F   2434         ADD     A,#0x34
+   \   000041   F582         MOV     DPL,A
+   \   000043   E9           MOV     A,R1
+   \   000044   12....       LCALL   ??Subroutine7_0 & 0xFFFF
+    213              }
+   \                     ??CrossCallReturnLabel_13:
+   \   000047   6A           XRL     A,R2
+   \   000048   70E0         JNZ     ??Receive_2
+   \   00004A   7401         MOV     A,#0x1
+   \   00004C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00004F   E0           MOVX    A,@DPTR
+   \   000050   FA           MOV     R2,A
+   \   000051   E8           MOV     A,R0
+   \   000052   2435         ADD     A,#0x35
+   \   000054   F582         MOV     DPL,A
+   \   000056   E9           MOV     A,R1
+   \   000057   12....       LCALL   ??Subroutine7_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_14:
+   \   00005A   6A           XRL     A,R2
+   \   00005B   70CD         JNZ     ??Receive_2
+    214              if (p != NULL)
+    215              {
+    216                osal_memcpy(&dstAddr, p->ADDR, 2);
+   \   00005D                ; Setup parameters for call to function osal_memcpy
+   \   00005D   E8           MOV     A,R0
+   \   00005E   2436         ADD     A,#0x36
+   \   000060   F5..         MOV     ?V0 + 0,A
+   \   000062   E9           MOV     A,R1
+   \   000063   3400         ADDC    A,#0x0
+   \   000065   F5..         MOV     ?V0 + 1,A
+   \   000067   75..00       MOV     ?V0 + 2,#0x0
+   \   00006A   78..         MOV     R0,#?V0 + 0
+   \   00006C   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   00006F   7C02         MOV     R4,#0x2
+   \   000071   7D00         MOV     R5,#0x0
+   \   000073   7409         MOV     A,#0x9
+   \   000075   12....       LCALL   ?XSTACK_DISP0_8
+   \   000078   AA82         MOV     R2,DPL
+   \   00007A   AB83         MOV     R3,DPH
+   \   00007C   12....       LCALL   ??osal_memcpy?relay
+   \   00007F   7403         MOV     A,#0x3
+   \   000081   12....       LCALL   ?DEALLOC_XSTACK8
+    217                zb_SendDataRequest(dstAddr, TOGGLE_CMD_ID,
+    218                                   6, CMD, 0, FALSE, AF_DEFAULT_RADIUS);
+   \   000084                ; Setup parameters for call to function zb_SendDataRequest
+   \   000084   75..1E       MOV     ?V0 + 0,#0x1e
+   \   000087   78..         MOV     R0,#?V0 + 0
+   \   000089   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   00008C   75..00       MOV     ?V0 + 0,#0x0
+   \   00008F   78..         MOV     R0,#?V0 + 0
+   \   000091   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000094   78..         MOV     R0,#?V0 + 0
+   \   000096   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000099   7403         MOV     A,#0x3
+   \   00009B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00009E   8582..       MOV     ?V0 + 0,DPL
+   \   0000A1   8583..       MOV     ?V0 + 1,DPH
+   \   0000A4   78..         MOV     R0,#?V0 + 0
+   \   0000A6   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000A9   7906         MOV     R1,#0x6
+   \   0000AB   7C03         MOV     R4,#0x3
+   \   0000AD   7D00         MOV     R5,#0x0
+   \   0000AF   740B         MOV     A,#0xb
+   \   0000B1   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000B4   E0           MOVX    A,@DPTR
+   \   0000B5   FA           MOV     R2,A
+   \   0000B6   A3           INC     DPTR
+   \   0000B7   E0           MOVX    A,@DPTR
+   \   0000B8   FB           MOV     R3,A
+   \   0000B9   12....       LCALL   ??zb_SendDataRequest?relay
+   \   0000BC   7405         MOV     A,#0x5
+   \   0000BE   12....       LCALL   ?DEALLOC_XSTACK8
+    219              }
+    220              if (CMD[0] == 'Z')
+   \                     ??Receive_3:
+   \   0000C1   85..82       MOV     DPL,?XSP + 0
+   \   0000C4   85..83       MOV     DPH,?XSP + 1
+   \   0000C7   E0           MOVX    A,@DPTR
+   \   0000C8   645A         XRL     A,#0x5a
+   \   0000CA   7017         JNZ     ??Receive_4
+    221              {
+    222                if (CMD[2] == '1')
+   \   0000CC   7402         MOV     A,#0x2
+   \   0000CE   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000D1   E0           MOVX    A,@DPTR
+   \   0000D2   6431         XRL     A,#0x31
+   \   0000D4   7005         JNZ     ??Receive_5
+    223                {
+    224                  LIGHT_OFF();
+   \   0000D6                ; Setup parameters for call to function LIGHT_OFF
+   \   0000D6   12....       LCALL   ??LIGHT_OFF?relay
+   \   0000D9   8008         SJMP    ??Receive_4
+    225                }
+    226                else if (CMD[2] == '0')
+   \                     ??Receive_5:
+   \   0000DB   E0           MOVX    A,@DPTR
+   \   0000DC   6430         XRL     A,#0x30
+   \   0000DE   7003         JNZ     ??Receive_4
+    227                {
+    228                  LIGHT_ON();
+   \   0000E0                ; Setup parameters for call to function LIGHT_ON
+   \   0000E0   12....       LCALL   ??LIGHT_ON?relay
+    229                }
+    230              }
+    231              if (osal_memcmp(CMD, "AUTO", 4))
+   \                     ??Receive_4:
+   \   0000E3                ; Setup parameters for call to function osal_memcmp
+   \   0000E3   75....       MOV     ?V0 + 0,#`?<Constant "AUTO">` & 0xff
+   \   0000E6   75....       MOV     ?V0 + 1,#(`?<Constant "AUTO">` >> 8) & 0xff
+   \   0000E9   75..00       MOV     ?V0 + 2,#0x0
+   \   0000EC   78..         MOV     R0,#?V0 + 0
+   \   0000EE   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   0000F1   7C04         MOV     R4,#0x4
+   \   0000F3   7D00         MOV     R5,#0x0
+   \   0000F5   7403         MOV     A,#0x3
+   \   0000F7   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000FA   A982         MOV     R1,DPL
+   \   0000FC   AA83         MOV     R2,DPH
+   \   0000FE   7B00         MOV     R3,#0x0
+   \   000100   12....       LCALL   ??osal_memcmp?relay
+   \   000103   7403         MOV     A,#0x3
+   \   000105   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000108   E9           MOV     A,R1
+   \   000109   600A         JZ      ??Receive_6
+    232              {
+    233                AUTO = 1;
+   \   00010B   90....       MOV     DPTR,#AUTO
+   \   00010E   7401         MOV     A,#0x1
+   \   000110   F0           MOVX    @DPTR,A
+   \   000111   A3           INC     DPTR
+   \   000112   E4           CLR     A
+   \   000113   802B         SJMP    ??Receive_7
+    234                zb_SendDataRequest(ZB_BROADCAST_ADDR, TOGGLE_CMD_ID,
+    235                                   6, CMD, 0, FALSE, AF_DEFAULT_RADIUS);
+    236              }
+    237              else if (osal_memcmp(CMD, "NOAU", 4))
+   \                     ??Receive_6:
+   \   000115                ; Setup parameters for call to function osal_memcmp
+   \   000115   75....       MOV     ?V0 + 0,#`?<Constant "NOAU">` & 0xff
+   \   000118   75....       MOV     ?V0 + 1,#(`?<Constant "NOAU">` >> 8) & 0xff
+   \   00011B   78..         MOV     R0,#?V0 + 0
+   \   00011D   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   000120   7C04         MOV     R4,#0x4
+   \   000122   7D00         MOV     R5,#0x0
+   \   000124   7403         MOV     A,#0x3
+   \   000126   12....       LCALL   ?XSTACK_DISP0_8
+   \   000129   A982         MOV     R1,DPL
+   \   00012B   AA83         MOV     R2,DPH
+   \   00012D   7B00         MOV     R3,#0x0
+   \   00012F   12....       LCALL   ??osal_memcmp?relay
+   \   000132   7403         MOV     A,#0x3
+   \   000134   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000137   E9           MOV     A,R1
+   \   000138   603E         JZ      ??Receive_0
+    238              {
+    239                AUTO = 0;
+   \   00013A   90....       MOV     DPTR,#AUTO
+   \   00013D   E4           CLR     A
+   \   00013E   F0           MOVX    @DPTR,A
+   \   00013F   A3           INC     DPTR
+   \                     ??Receive_7:
+   \   000140   F0           MOVX    @DPTR,A
+    240                zb_SendDataRequest(ZB_BROADCAST_ADDR, TOGGLE_CMD_ID,
+    241                                   6, CMD, 0, FALSE, AF_DEFAULT_RADIUS);
+   \   000141                ; Setup parameters for call to function zb_SendDataRequest
+   \   000141   75..1E       MOV     ?V0 + 0,#0x1e
+   \   000144   78..         MOV     R0,#?V0 + 0
+   \   000146   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000149   75..00       MOV     ?V0 + 0,#0x0
+   \   00014C   78..         MOV     R0,#?V0 + 0
+   \   00014E   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000151   78..         MOV     R0,#?V0 + 0
+   \   000153   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000156   7403         MOV     A,#0x3
+   \   000158   12....       LCALL   ?XSTACK_DISP0_8
+   \   00015B   8582..       MOV     ?V0 + 0,DPL
+   \   00015E   8583..       MOV     ?V0 + 1,DPH
+   \   000161   78..         MOV     R0,#?V0 + 0
+   \   000163   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000166   7906         MOV     R1,#0x6
+   \   000168   7C03         MOV     R4,#0x3
+   \   00016A   7D00         MOV     R5,#0x0
+   \   00016C   7AFF         MOV     R2,#-0x1
+   \   00016E   7BFF         MOV     R3,#-0x1
+   \   000170   12....       LCALL   ??zb_SendDataRequest?relay
+   \   000173   7405         MOV     A,#0x5
+   \   000175   12....       LCALL   ?DEALLOC_XSTACK8
+    242              }
+    243            }
+    244          }
+   \                     ??Receive_0:
+   \   000178   7408         MOV     A,#0x8
+   \   00017A   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00017D   7F03         MOV     R7,#0x3
+   \   00017F   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    245          uint16 Light(void)
+   \                     Light:
+    246          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+    247            uint32 w;
+    248            LIGHT_INIT();
+   \   000005   53F3DF       ANL     0xf3,#0xdf
+   \   000008   43FD20       ORL     0xfd,#0x20
+   \   00000B   D285         SETB    0x80.5
+   \   00000D   53F3EF       ANL     0xf3,#0xef
+   \   000010   43FD10       ORL     0xfd,#0x10
+   \   000013   D284         SETB    0x80.4
+    249            w = get_light() / 1.2;
+                     ^
+Warning[Pa093]: implicit conversion from floating point to integer
+    250            uint16 lightData = w;
+    251            return lightData;
+   \   000015                ; Setup parameters for call to function get_light
+   \   000015   12....       LCALL   ??get_light?relay
+   \   000018   8A..         MOV     ?V0 + 0,R2
+   \   00001A   8B..         MOV     ?V0 + 1,R3
+   \   00001C   E4           CLR     A
+   \   00001D   F5..         MOV     ?V0 + 2,A
+   \   00001F   F5..         MOV     ?V0 + 3,A
+   \   000021   78..         MOV     R0,#?V0 + 0
+   \   000023   12....       LCALL   ?UL_TO_FLT
+   \   000026   90....       MOV     DPTR,#__Constant_3f99999a
+   \   000029   78..         MOV     R0,#?V0 + 4
+   \   00002B   12....       LCALL   ?L_MOV_X
+   \   00002E   78..         MOV     R0,#?V0 + 0
+   \   000030   79..         MOV     R1,#?V0 + 4
+   \   000032   12....       LCALL   ?FLT_DIV
+   \   000035   78..         MOV     R0,#?V0 + 0
+   \   000037   12....       LCALL   ?FLT_TO_UL
+   \   00003A   AA..         MOV     R2,?V0 + 0
+   \   00003C   AB..         MOV     R3,?V0 + 1
+   \   00003E   7F08         MOV     R7,#0x8
+   \   000040   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   000043                REQUIRE P0SEL
+   \   000043                REQUIRE P0DIR
+   \   000043                REQUIRE _A_P0
+    252          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??DeviceNode?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    DeviceNode
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_HandleOsalEvent?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_HandleOsalEvent
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_HandleKeys?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_HandleKeys
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_StartConfirm?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_StartConfirm
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_SendDataConfirm?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_SendDataConfirm
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_BindConfirm?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_BindConfirm
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_AllowBindConfirm?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_AllowBindConfirm
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_FindDeviceConfirm?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_FindDeviceConfirm
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_ReceiveDataIndication?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_ReceiveDataIndication
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Receive?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Receive
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Light?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Light
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "COOR,%d,%d">`:
+   \   000000   434F4F52     DB "COOR,%d,%d"
+   \            2C25642C
+   \            256400  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant ";">`:
+   \   000000   3B00         DB ";"
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "AUTO">`:
+   \   000000   4155544F     DB "AUTO"
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "NOAU">`:
+   \   000000   4E4F4155     DB "NOAU"
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3f99999a:
+   \   000000   9A99993F     DD 3F99999AH
+
+   Maximum stack usage in bytes:
+
+     Function                     ISTACK PSTACK XSTACK
+     --------                     ------ ------ ------
+     DeviceNode                       2      0      0
+       -> osal_mem_alloc              4      0      0
+     Light                            0      0     26
+       -> get_light                   0      0     32
+     Receive                          0      0     24
+       -> HalUARTRead                 0      0     38
+       -> osal_memcpy                 0      0     44
+       -> zb_SendDataRequest          0      0     48
+       -> LIGHT_OFF                   0      0     38
+       -> LIGHT_ON                    0      0     38
+       -> osal_memcmp                 0      0     44
+       -> zb_SendDataRequest          0      0     48
+       -> osal_memcmp                 0      0     44
+       -> zb_SendDataRequest          0      0     48
+     zb_AllowBindConfirm              0      0      0
+     zb_BindConfirm                   0      0      0
+     zb_FindDeviceConfirm             0      0      0
+     zb_HandleKeys                    0      0      0
+     zb_HandleOsalEvent               0      0     14
+       -> Light                       0      0     20
+       -> HalLedSet                   0      0     20
+       -> HalLedSet                   0      0     20
+       -> LIGHT_STATE                 0      0     20
+       -> sprintf                     0      0     28
+       -> osal_strlen                 0      0     20
+       -> HalUARTWrite                0      0     20
+       -> osal_strlen                 0      0     20
+       -> HalUARTWrite                0      0     20
+       -> osal_strlen                 0      0     20
+       -> HalUARTWrite                0      0     20
+       -> osal_strlen                 0      0     20
+       -> HalUARTWrite                0      0     20
+     zb_ReceiveDataIndication         0      0     24
+       -> osal_memcmp                 0      0     40
+       -> osal_mem_alloc              0      0     34
+       -> osal_memcpy                 0      0     40
+       -> osal_memcpy                 0      0     40
+       -> osal_memcpy                 0      0     40
+       -> osal_memcpy                 0      0     40
+     zb_SendDataConfirm               0      0      0
+     zb_StartConfirm                  0      0     38
+       -> HalLedSet                   0      0     76
+       -> HalLedSet                   0      0     76
+       -> HalUARTOpen                 0      0     76
+       -> osal_start_reload_timer     0      0     76
+
+
+   Segment part sizes:
+
+     Function/Label                   Bytes
+     --------------                   -----
+     _A_P0                               1
+     P0SEL                               1
+     P0DIR                               1
+     L_VAL                               2
+     L_STATE                             2
+     AUTO                                2
+     COORINFO                           10
+     coordinatorInputCommandList         4
+     coordinatorOutputCommandList        2
+     DeviceNode                         18
+     DeviceHeader                       58
+     zb_SimpleDesc                      12
+     zb_HandleOsalEvent                214
+     ?Subroutine0                       22
+     ?Subroutine6                        8
+     ?Subroutine3                        8
+     ?Subroutine4                        8
+     zb_HandleKeys                       3
+     zb_StartConfirm                   104
+     zb_SendDataConfirm                  3
+     zb_BindConfirm                      3
+     zb_AllowBindConfirm                 3
+     zb_FindDeviceConfirm                3
+     zb_ReceiveDataIndication          346
+     ?Subroutine5                        3
+     ??Subroutine7_0                     6
+     ?Subroutine2                       16
+     ?Subroutine1                        7
+     ??Subroutine8_0                    11
+     Receive                           386
+     Light                              67
+     ??DeviceNode?relay                  6
+     ??zb_HandleOsalEvent?relay          6
+     ??zb_HandleKeys?relay               6
+     ??zb_StartConfirm?relay             6
+     ??zb_SendDataConfirm?relay          6
+     ??zb_BindConfirm?relay              6
+     ??zb_AllowBindConfirm?relay         6
+     ??zb_FindDeviceConfirm?relay        6
+     ??zb_ReceiveDataIndication?relay    6
+     ??Receive?relay                     6
+     ??Light?relay                       6
+     ?<Constant "COOR,%d,%d">           11
+     ?<Constant ";">                     2
+     ?<Constant "AUTO">                  5
+     ?<Constant "NOAU">                  5
+     __Constant_3f99999a                 4
+
+ 
+ 1 239 bytes in segment BANKED_CODE
+    66 bytes in segment BANK_RELAYS
+     3 bytes in segment SFR_AN
+    45 bytes in segment XDATA_ROM_C
+    74 bytes in segment XDATA_Z
+ 
+ 1 305 bytes of CODE  memory
+    41 bytes of CONST memory (+ 4 bytes shared)
+     0 bytes of DATA  memory (+ 3 bytes shared)
+    74 bytes of XDATA memory
+
+Errors: none
+Warnings: 4
